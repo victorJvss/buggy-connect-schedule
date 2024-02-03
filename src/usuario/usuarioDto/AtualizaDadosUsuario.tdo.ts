@@ -1,30 +1,34 @@
 import {
-  IsArray,
   IsEmail,
   IsNotEmpty,
+  IsOptional,
   IsStrongPassword,
   MaxLength,
   MinLength,
   ValidateNested,
 } from 'class-validator';
-import { EnderecoDto } from './EnderecoCliente.dto';
-import { ContaPessoal, ContaProfissional } from './TipoDeConta.dto';
 import { Type } from 'class-transformer';
-import { emailValidado } from '../validador/email.validator';
-import { cpfValidado } from '../validador/cpf.validator';
 
-export class ClienteDto {
+import { AtualizaEnderecoDto } from './AtualizaEndereco.dto';
+import {
+  AtualizaContaPessoal,
+  AtualizaContaProfissional,
+} from './AtualizaTipoDeConta.dto';
+
+export class AtualizaClienteDto {
   @IsNotEmpty({ message: 'O campo nome não pode ser vazio!' })
   @MaxLength(30, { message: 'O campo nome deve ter no máximo 30 caracteres' })
+  @IsOptional()
   nome: string;
 
   @IsNotEmpty({ message: 'O campo telefone não pode ser vazio!' })
   @MaxLength(12, { message: 'O campo telefone deve ter no máximo 12 números' })
+  @IsOptional()
   telefone: number;
 
   @IsNotEmpty({ message: 'O campo email não pode ser vazio!' })
   @IsEmail()
-  @emailValidado({ message: 'Esse email já foi cadastrado' })
+  @IsOptional()
   email: string;
 
   @IsNotEmpty({ message: 'O campo senha não pode ser vazio!' })
@@ -33,22 +37,24 @@ export class ClienteDto {
     message:
       'A sua senha deve ter no mínimo uma letra maiúscula, uma letra minúscula, um número e um caracter especial: @,!,#,$,%...',
   })
+  @IsOptional()
   senha: string;
 
   @IsNotEmpty({ message: 'O campo CPF não pode ser vazio!' })
   @MaxLength(14, { message: 'O campo CPF deve ter no máximo 14 números' })
   @MinLength(14, { message: 'O campo CPF deve ter no mínimo 12 números' })
-  @cpfValidado({ message: 'CPF já cadastrado' })
+  @IsOptional()
   cpf: number;
 
   @IsNotEmpty({ message: 'O campo endereço não pode ser vazio!' })
   @ValidateNested()
-  @Type(() => EnderecoDto)
-  endereco: EnderecoDto;
+  @Type(() => AtualizaEnderecoDto)
+  @IsOptional()
+  endereco: AtualizaEnderecoDto;
 
   @IsNotEmpty({ message: 'O campo tipo de conta não pode ser vazio!' })
   @ValidateNested()
-  @IsArray()
-  @Type(() => ContaPessoal || ContaProfissional)
-  tipoDeConta: ContaProfissional | ContaPessoal;
+  @Type(() => AtualizaContaPessoal || AtualizaContaProfissional)
+  @IsOptional()
+  tipoDeConta: AtualizaContaPessoal | AtualizaContaProfissional;
 }

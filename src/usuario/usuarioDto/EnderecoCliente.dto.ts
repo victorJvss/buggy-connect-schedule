@@ -1,6 +1,6 @@
 import { IsNotEmpty, MaxLength } from 'class-validator';
 
-export class Endereco {
+export class EnderecoDto {
   @IsNotEmpty({ message: 'O campo estado não pode ser vazio!' })
   @MaxLength(35)
   estado: string;

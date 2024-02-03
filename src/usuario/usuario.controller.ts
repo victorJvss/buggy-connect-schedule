@@ -1,13 +1,22 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  Put,
+} from '@nestjs/common';
 
-import { UsuarioRepository } from './usuario.repository';
+import { UsuarioService } from './usuario.service';
 import { ClienteDto } from './usuarioDto/Cliente.dto';
 import { ClienteEntity } from './usuarioEntity/Cliente.entity';
-import { v4 as uuid } from 'uuid';
+import { AtualizaClienteDto } from './usuarioDto/AtualizaDadosUsuario.tdo';
+import { Usuario } from './usuarioSchema/usuario.schema';
 
 @Controller('/usuarios')
 export class usuarioController {
-  constructor(private repository: UsuarioRepository) {}
+  constructor(private usuarioService: UsuarioService) {}
 
   @Post()
   async enviaUsuario(@Body() dadosEnviado: ClienteDto) {
@@ -20,19 +29,41 @@ export class usuarioController {
     usuarioEntity.cpf = dadosEnviado.cpf;
     usuarioEntity.endereco = dadosEnviado.endereco;
     usuarioEntity.tipoDeConta = dadosEnviado.tipoDeConta;
-    usuarioEntity.idCliente = uuid();
-    usuarioEntity.dataCadastro = new Date();
-    usuarioEntity.dataUltimoAcesso = new Date(); 
-    usuarioEntity.dataUltimaAtualizacao = new Date();
+    usuarioEntity.dataUltimoAcesso = new Date();
     usuarioEntity.dataExlusaoConta = null;
     usuarioEntity.usuarioAutorizado = true;
     usuarioEntity.usuarioAtivo = true;
     usuarioEntity.usuarioMotorista = false;
-    return this.repository.salva(usuarioEntity);
+
+    return this.usuarioService.criaUsuario(usuarioEntity);
   }
 
   @Get()
-  async pegaUsuario() {
-    return this.repository.pegar();
+  async pegaUsuarios() {
+    return this.usuarioService.pegaUsuarios();
+  }
+
+  @Get('/:id')
+  async pegaUsuarioPeloId(@Param('id') id: string): Promise<Usuario> {
+    return this.usuarioService.pegaUsuarioPeloId(id);
+  }
+
+  @Put('/:id')
+  async atualizaUsuario(
+    @Param('id') id: string,
+    @Body() dadosUsuario: AtualizaClienteDto,
+  ) {
+    const atualizaUsuario = await this.usuarioService.atualizaUsuario(
+      id,
+      dadosUsuario,
+    );
+
+    return atualizaUsuario;
+  }
+
+  @Delete('/:id')
+  async removeUsuario(@Param('id') id: string): Promise<object> {
+    return this.usuarioService.deletaUsuario(id);
   }
 }
+

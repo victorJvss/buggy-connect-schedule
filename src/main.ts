@@ -16,9 +16,10 @@ async function bootstrap() {
   )
   const config = new DocumentBuilder()
   .setTitle('Clientes')
-  .setDescription('Requisição HTTP na rota /usuario e na rota /enderecos')
+  .setDescription('Requisição HTTP na rota /usuarios e na rota /enderecos')
   .setVersion('1.0')
-  .addTag('Cliente')
+  .addTag('Usuários')
+  .addTag('Endereços')
   .build();
 const document = SwaggerModule.createDocument(app, config);
 SwaggerModule.setup('api', app, document);

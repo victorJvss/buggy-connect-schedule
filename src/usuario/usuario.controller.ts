@@ -13,7 +13,9 @@ import { ClienteDto } from './usuarioDto/Cliente.dto';
 import { ClienteEntity } from './usuarioEntity/Cliente.entity';
 import { AtualizaClienteDto } from './usuarioDto/AtualizaDadosUsuario.tdo';
 import { Usuario } from './usuarioSchema/usuario.schema';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('Usuários')
 @Controller('/usuarios')
 export class usuarioController {
   constructor(private usuarioService: UsuarioService) {}

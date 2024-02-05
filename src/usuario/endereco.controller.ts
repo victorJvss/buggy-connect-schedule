@@ -1,7 +1,9 @@
 import { Body, Controller, Get, Param, Put } from '@nestjs/common';
 import { EnderecoService } from './endereco.service';
 import { AtualizaEnderecoDto } from './usuarioDto/AtualizaEndereco.dto';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('Endereços')
 @Controller('/enderecos')
 export class enderecoController {
   constructor(private enderecoService: EnderecoService) {}

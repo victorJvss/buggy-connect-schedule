@@ -1,8 +1,8 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import {
-  ContaPessoal,
-  ContaProfissional,
+  ContaPessoalDto,
+  ContaProfissionalDto,
 } from 'src/usuario/usuarioDto/TipoDeConta.dto';
 import { Endereco } from './Endereco.schema';
 
@@ -26,8 +26,8 @@ export class Usuario extends Model {
   @Prop(Endereco)
   endereco: Endereco;
 
-  @Prop({ type: Object })
-  tipoDeConta: ContaPessoal | ContaProfissional;
+  @Prop({ type: ContaPessoalDto || ContaProfissionalDto })
+  tipoDeConta: ContaPessoalDto | ContaProfissionalDto;
 
   @Prop()
   dataUltimoAcesso: Date;

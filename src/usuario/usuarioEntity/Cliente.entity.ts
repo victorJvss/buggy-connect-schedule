@@ -1,4 +1,7 @@
-import { ContaPessoal, ContaProfissional } from '../usuarioDto/TipoDeConta.dto';
+import {
+  ContaPessoalDto,
+  ContaProfissionalDto,
+} from '../usuarioDto/TipoDeConta.dto';
 import { EnderecoEntity } from './EnderecoCliente.entity';
 
 export class ClienteEntity {
@@ -8,7 +11,7 @@ export class ClienteEntity {
   senha: string;
   cpf: number;
   endereco: EnderecoEntity;
-  tipoDeConta: ContaPessoal | ContaProfissional;
+  tipoDeConta: ContaPessoalDto | ContaProfissionalDto;
   dataUltimoAcesso: Date;
   dataExlusaoConta: Date | null;
   usuarioAutorizado: boolean;

@@ -1,4 +1,4 @@
-import { Prop, Schema } from '@nestjs/mongoose';
+import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 
 @Schema({ timestamps: true })
 export class Passeios {
@@ -17,3 +17,5 @@ export class Passeios {
   @Prop()
   valor: number;
 }
+
+export const passseiosSchema = SchemaFactory.createForClass(Passeios)

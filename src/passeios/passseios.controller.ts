@@ -1,4 +1,12 @@
-import { Body, Controller, Get, Param, Post, Put } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  Put,
+} from '@nestjs/common';
 import { PasseiosService } from './passeios.service';
 import { PasseiosDto } from './passeiosDto/Passeios.dto';
 import { AtualizaPasseioDto } from './passeiosDto/AtualizaPasseios.dto';
@@ -29,7 +37,16 @@ export class PasseiosController {
     @Param('id') id: string,
     @Body() dadosAtualizadosPasseio: AtualizaPasseioDto,
   ) {
-    const atualizaPasseio = await this.passeios.atualizaPasseios(id,dadosAtualizadosPasseio)
+    const atualizaPasseio = await this.passeios.atualizaPasseios(
+      id,
+      dadosAtualizadosPasseio,
+    );
     return atualizaPasseio;
+  }
+
+  @Delete('/:id')
+  async deletaPasseio(@Param('id') id: string) {
+    const deletandoPasseio = await this.passeios.deletaPasseio(id)
+    return deletandoPasseio;
   }
 }

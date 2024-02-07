@@ -31,4 +31,9 @@ export class PasseiosService {
     );
     return atualizaPasseio
   }
+
+  async deletaPasseio(id: string){
+    const passeioDeletado = await this.passeios.findByIdAndDelete(id)
+    return passeioDeletado;
+  }
 }

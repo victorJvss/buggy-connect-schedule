@@ -3,19 +3,22 @@ import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 @Schema({ timestamps: true })
 export class Passeios {
   @Prop()
+  nomePasseio: string;
+  
+  @Prop()
   datalhesPasseios: string;
 
   @Prop()
   horarios: string;
 
   @Prop()
-  distancia: number;
+  distancia: string;
 
   @Prop()
-  tempoPasseio: number;
+  tempoPasseio: string;
 
   @Prop()
-  valor: number;
+  valor: string;
 }
 
 export const passseiosSchema = SchemaFactory.createForClass(Passeios)

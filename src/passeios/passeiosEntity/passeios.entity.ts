@@ -1,8 +1,9 @@
 export class PasseiosEntity {
+  nomePasseio: string;
   datalhesPasseios: string;
   horarios: string;
-  distancia: number;
-  tempoPasseio: number;
-  valor: number;
+  distancia: string;
+  tempoPasseio: string;
+  valor: string;
   //   formasDePagamentos: formasDePagamento;
 }

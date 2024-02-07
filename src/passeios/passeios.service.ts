@@ -9,4 +9,8 @@ export class PasseiosService {
     @InjectModel(Passeios.name)
     private passeios: mongoose.Model<Passeios>,
   ) {}
+
+  async pegaTodosOsPasseios(){
+    return this.passeios.find()
+  }
 }

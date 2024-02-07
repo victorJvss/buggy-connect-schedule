@@ -1,6 +1,7 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Put } from '@nestjs/common';
 import { PasseiosService } from './passeios.service';
-import { PasseiosDto } from './passeiosDto/passeios.dto';
+import { PasseiosDto } from './passeiosDto/Passeios.dto';
+import { AtualizaPasseioDto } from './passeiosDto/AtualizaPasseios.dto';
 
 @Controller('Passeios')
 export class PasseiosController {
@@ -21,5 +22,14 @@ export class PasseiosController {
   async adicionaPasseio(@Body() DadosPasseio: PasseiosDto) {
     const salvaPasseios = await this.passeios.adicionaPasseios(DadosPasseio);
     return salvaPasseios;
+  }
+
+  @Put('/:id')
+  async atualizaPasseio(
+    @Param('id') id: string,
+    @Body() dadosAtualizadosPasseio: AtualizaPasseioDto,
+  ) {
+    const atualizaPasseio = await this.passeios.atualizaPasseios(id,dadosAtualizadosPasseio)
+    return atualizaPasseio;
   }
 }

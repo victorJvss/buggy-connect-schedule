@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import { Passeios } from './passeiosSchema/passeios.schema';
+import { Passeios } from './passeiosSchema/Passeios.schema';
 import mongoose from 'mongoose';
-import { PasseiosDto } from './passeiosDto/passeios.dto';
+import { PasseiosDto } from './passeiosDto/Passeios.dto';
 
 @Injectable()
 export class PasseiosService {
@@ -11,16 +11,24 @@ export class PasseiosService {
     private passeios: mongoose.Model<Passeios>,
   ) {}
 
-  async pegaTodosOsPasseios(){
-    return this.passeios.find()
+  async pegaTodosOsPasseios() {
+    return this.passeios.find();
   }
 
-  async pegaPasseioPeloId(id:string){
-    return this.passeios.findById(id)
+  async pegaPasseioPeloId(id: string) {
+    return this.passeios.findById(id);
   }
 
-  async adicionaPasseios(dadosPasseio: PasseiosDto){
-    const salvaPasseios = await this.passeios.create(dadosPasseio)
+  async adicionaPasseios(dadosPasseio: PasseiosDto) {
+    const salvaPasseios = await this.passeios.create(dadosPasseio);
     return salvaPasseios;
+  }
+
+  async atualizaPasseios(id: string, atualizacaoPasseio: PasseiosDto) {
+    const atualizaPasseio = await this.passeios.findByIdAndUpdate(
+      id,
+      atualizacaoPasseio,
+    );
+    return atualizaPasseio
   }
 }

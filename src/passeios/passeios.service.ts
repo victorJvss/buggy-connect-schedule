@@ -15,6 +15,10 @@ export class PasseiosService {
     return this.passeios.find()
   }
 
+  async pegaPasseioPeloId(id:string){
+    return this.passeios.findById(id)
+  }
+
   async adicionaPasseios(dadosPasseio: PasseiosDto){
     const salvaPasseios = await this.passeios.create(dadosPasseio)
     return salvaPasseios;

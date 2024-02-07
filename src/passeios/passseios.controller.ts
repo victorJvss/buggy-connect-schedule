@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { PasseiosService } from './passeios.service';
 import { PasseiosDto } from './passeiosDto/passeios.dto';
 
@@ -7,12 +7,19 @@ export class PasseiosController {
   constructor(private passeios: PasseiosService) {}
   @Get()
   async pegaTodosOsPasseios() {
-    return this.passeios.pegaTodosOsPasseios();
+    const todosOsPasseios = await this.passeios.pegaTodosOsPasseios();
+    return todosOsPasseios;
+  }
+
+  @Get('/:id')
+  async pegaPasseioPeloId(@Param('id') id: string) {
+    const pegaPasseioPeloId = await this.passeios.pegaPasseioPeloId(id);
+    return pegaPasseioPeloId;
   }
 
   @Post()
   async adicionaPasseio(@Body() DadosPasseio: PasseiosDto) {
-    const salvaPasseios = await this.passeios.adicionaPasseios(DadosPasseio)
-    return salvaPasseios
+    const salvaPasseios = await this.passeios.adicionaPasseios(DadosPasseio);
+    return salvaPasseios;
   }
 }

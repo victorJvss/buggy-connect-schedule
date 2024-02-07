@@ -29,7 +29,7 @@ export class ContaPessoalDto {
   // metodoDePagamento: any;
 }
 
-export class ContaProfissionalDto {
+export class ContaProfissional {
   @ApiProperty()
   @IsNotEmpty({ message: 'O campo RG não pode ser vazio!' })
   rg: number;

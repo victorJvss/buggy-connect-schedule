@@ -26,7 +26,7 @@ export class Usuario extends Model {
   @Prop(Endereco)
   endereco: Endereco;
 
-  @Prop({ type: ContaPessoalDto || ContaProfissionalDto })
+  @Prop({ type: Object})
   tipoDeConta: ContaPessoalDto | ContaProfissionalDto;
 
   @Prop()

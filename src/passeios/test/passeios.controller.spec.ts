@@ -17,4 +17,12 @@ describe('Teste passeio controller', () => {
     const retornarPasseios = await passeioService.pegaTodosOsPasseios();
     expect(retornarPasseios).toEqual([mockPasseio]);
   });
+
+  it('Deve retornar o passeio pelo id', async () => {
+    const retornarPasseioPeloId = await passeioService.pegaPasseioPeloId(
+      mockPasseio.id,
+    );
+
+    expect(retornarPasseioPeloId.id).toBe('1');
+  });
 });

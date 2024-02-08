@@ -1,6 +1,8 @@
 import { PasseiosService } from '../passeios.service';
 
 export const mockPasseio = {
+  id: '1',
+  
   nomePasseio: 'PRAIA DE GENIPABU',
 
   datalhesPasseios:

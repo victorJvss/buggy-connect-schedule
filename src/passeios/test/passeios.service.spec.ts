@@ -57,9 +57,14 @@ describe('Teste passeio controller', () => {
     const passeioAtualizado = { ...atualizaPasseio, valor: 'R$ 30' };
     const atualizandoPasseio = await passeioService.atualizaPasseios(
       mockPasseio.id,
-      passeioAtualizado
-    )
+      passeioAtualizado,
+    );
 
-    expect(atualizandoPasseio.valor).toEqual(mockPasseio.valor)
+    expect(atualizandoPasseio.valor).toEqual(mockPasseio.valor);
+  });
+
+  it('Deve retornar true para a exclusão do passeio', async () => {
+    const excluiPasseio = await passeioService.deletaPasseio(mockPasseio.id);
+    expect(excluiPasseio).toBeTruthy();
   });
 });

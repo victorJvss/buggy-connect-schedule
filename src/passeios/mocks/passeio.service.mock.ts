@@ -23,6 +23,6 @@ export const mockPasseioService = {
     pegaPasseioPeloId: jest.fn().mockResolvedValue(mockPasseio),
     adicionaPasseios: jest.fn().mockResolvedValue(mockPasseio),
     atualizaPasseios: jest.fn().mockResolvedValue(mockPasseio),
-    deletaPasseio: jest.fn().mockResolvedValue(mockPasseio),
+    deletaPasseio: jest.fn().mockResolvedValue(true),
   },
 };

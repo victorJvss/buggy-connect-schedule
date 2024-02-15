@@ -13,7 +13,7 @@ import { AtualizaPasseioDto } from './passeiosDto/AtualizaPasseios.dto';
 import { ApiTags } from '@nestjs/swagger';
 
 @ApiTags('Passeios')
-@Controller('Passeios')
+@Controller('passeios')
 export class PasseiosController {
   constructor(private passeios: PasseiosService) {}
   @Get()

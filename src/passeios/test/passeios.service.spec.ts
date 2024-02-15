@@ -3,7 +3,7 @@ import { PasseiosService } from '../passeios.service';
 import { mockPasseio, mockPasseioService } from '../mocks/passeio.service.mock';
 import { AtualizaPasseioDto } from '../passeiosDto/AtualizaPasseios.dto';
 
-describe('Teste passeio controller', () => {
+describe('Teste passeio service', () => {
   let passeioService: PasseiosService;
 
   beforeAll(async () => {

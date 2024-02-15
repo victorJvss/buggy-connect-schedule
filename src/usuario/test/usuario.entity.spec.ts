@@ -2,7 +2,10 @@ import { ClienteEntity } from '../usuarioEntity/Cliente.entity';
 import { DadosCnh } from '../usuarioEntity/DadosCnh.entity';
 import { MetodoRecebimento } from '../usuarioEntity/MetodoRecebimento.entity';
 import { TipoDeBuggy } from '../usuarioEntity/TipoDeCarro.entity';
-import { ContaPessoal } from '../usuarioEntity/TipoDeConta.entity';
+import {
+  ContaPessoal,
+  ContaProfissional,
+} from '../usuarioEntity/TipoDeConta.entity';
 
 describe('Deve testar o entity cliente', () => {
   const clienteEntity = new ClienteEntity();
@@ -10,6 +13,7 @@ describe('Deve testar o entity cliente', () => {
   const metodoRecebimento = new MetodoRecebimento();
   const tipoDeCarro = new TipoDeBuggy();
   const contaPessoal = new ContaPessoal();
+  const contaProfissional = new ContaProfissional();
 
   it('Teste no entity cliente', () => {
     clienteEntity.nome = 'Raul';
@@ -34,5 +38,10 @@ describe('Deve testar o entity cliente', () => {
   it('Teste no entity contaPessoal', () => {
     contaPessoal.sexo = 'Masculino';
     expect(contaPessoal.sexo).toBe('Masculino');
+  });
+
+  it('Teste no entity ContaProfissional', () => {
+    contaProfissional.sexo = 'Feminino';
+    expect(contaProfissional.sexo).toBe('Feminino')
   });
 });

@@ -62,4 +62,9 @@ describe('Teste do  controller', () => {
 
     expect(passeioAtualizado.valor).toEqual(mockPasseio.valor);
   });
+
+  it('Deve excluir um passeio', async () => {
+    const excluiPasseio = await passeioController.deletaPasseio(mockPasseio.id);
+    expect(excluiPasseio).toEqual(true);
+  });
 });

@@ -10,7 +10,9 @@ import {
 import { PasseiosService } from './passeios.service';
 import { PasseiosDto } from './passeiosDto/Passeios.dto';
 import { AtualizaPasseioDto } from './passeiosDto/AtualizaPasseios.dto';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('Passeios')
 @Controller('Passeios')
 export class PasseiosController {
   constructor(private passeios: PasseiosService) {}

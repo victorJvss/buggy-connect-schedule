@@ -1,6 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { PasseiosService } from '../passeios.service';
 import { mockPasseio, mockPasseioService } from '../mocks/passeio.service.mock';
+import { AtualizaPasseioDto } from '../passeiosDto/AtualizaPasseios.dto';
 
 describe('Teste passeio controller', () => {
   let passeioService: PasseiosService;
@@ -49,5 +50,16 @@ describe('Teste passeio controller', () => {
 
     const criaPasseio = await passeioService.adicionaPasseios(passeio);
     expect(criaPasseio.id).toBe('2');
+  });
+
+  it('Deve retornar a atualização do passeio', async () => {
+    let atualizaPasseio: AtualizaPasseioDto;
+    const passeioAtualizado = { ...atualizaPasseio, valor: 'R$ 30' };
+    const atualizandoPasseio = await passeioService.atualizaPasseios(
+      mockPasseio.id,
+      passeioAtualizado
+    )
+
+    expect(atualizandoPasseio.valor).toEqual(mockPasseio.valor)
   });
 });

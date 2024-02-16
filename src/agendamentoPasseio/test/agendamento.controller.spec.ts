@@ -1,6 +1,9 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { AgendamentoPasseioController } from '../agendamento.controller';
-import { agendamentoMockService } from '../mocks/agendamento.service.mock';
+import {
+  agendamentoMock,
+  agendamentoMockService,
+} from '../mocks/agendamento.service.mock';
 
 describe('Deve testar o controller do agendamento de passeio', () => {
   let agendamentoController: AgendamentoPasseioController;
@@ -8,10 +11,16 @@ describe('Deve testar o controller do agendamento de passeio', () => {
     const module: TestingModule = await Test.createTestingModule({
       controllers: [AgendamentoPasseioController],
       providers: [agendamentoMockService],
-    }).compile;
+    }).compile();
 
     agendamentoController = module.get<AgendamentoPasseioController>(
       AgendamentoPasseioController,
     );
+  });
+
+  it('Deve retornar uma requisição Get de todos os passeios agendados', async () => {
+    const retornarPasseioAgendado =
+      await agendamentoController.pegaTodosOsPasseiosAgendados();
+    expect(retornarPasseioAgendado).toEqual([agendamentoMock]);
   });
 });

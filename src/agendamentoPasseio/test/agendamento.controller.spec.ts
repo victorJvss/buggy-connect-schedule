@@ -70,4 +70,10 @@ describe('Deve testar o controller do agendamento de passeio', () => {
       agendamentoMock.ValorTotalPasseio,
     );
   });
+
+  it('Deve retornar uma requisição Delete para excluir um passeio agendado', async () => {
+    const deletaPasseioAgendado =
+      await agendamentoController.deletaPasseioAgendado(agendamentoMock.id);
+    expect(deletaPasseioAgendado).toBeTruthy();
+  });
 });

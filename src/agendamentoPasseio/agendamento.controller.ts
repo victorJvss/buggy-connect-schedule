@@ -12,6 +12,15 @@ export class AgendamentoPasseioController {
     return this.agendamentoService.retornarTodosOsPasseiosAgendados();
   }
 
+  @Get('/:id')
+  async pegaPasseioAgendadoPeloId(
+    @Param('id') id: string,
+  ): Promise<Agendamento> {
+    const retornarPasseioAgendado: Agendamento =
+      await this.agendamentoService.retornaPasseioAgendadoPeloId(id);
+    return retornarPasseioAgendado;
+  }
+
   @Post()
   async adicionaPasseioAgendado(
     @Body() dadosPasseio: AgendamentoPasseioDto,

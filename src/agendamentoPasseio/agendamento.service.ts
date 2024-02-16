@@ -14,6 +14,12 @@ export class AgendamentoPasseioService {
     return this.agendamento.find();
   }
 
+  async retornaPasseioAgendadoPeloId(id: string): Promise<Agendamento> {
+    const procuraPasseioAgendado: Agendamento =
+      await this.agendamento.findById(id);
+    return procuraPasseioAgendado;
+  }
+
   async passeioAgendadoAdicionado(
     dadosPasseio: Agendamento,
   ): Promise<Agendamento> {

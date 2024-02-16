@@ -7,6 +7,10 @@ import mongoose from 'mongoose';
 export class AgendamentoPasseioService {
   constructor(
     @InjectModel(Agendamento.name)
-    private Agendamento: mongoose.Model<Agendamento>,
+    private agendamento: mongoose.Model<Agendamento>,
   ) {}
+
+  async retornarTodosOsAgendamento(){
+    return this.agendamento.find()
+  }
 }

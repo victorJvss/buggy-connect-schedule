@@ -4,6 +4,7 @@ import {
   agendamentoMock,
   agendamentoMockService,
 } from '../mocks/agendamento.service.mock';
+import { AtualizaAgendamentoPasseioDto } from '../agendamentoDto/AtualizaPasseioAgendado.dto';
 
 describe('Deve testar o controller do agendamento de passeio', () => {
   let agendamentoController: AgendamentoPasseioController;
@@ -49,5 +50,24 @@ describe('Deve testar o controller do agendamento de passeio', () => {
       await agendamentoController.adicionaPasseioAgendado(passeio);
 
     expect(salvaPasseioAgendado.HorarioTerminoPasseio).toBe('16:00');
+  });
+
+  it('Deve retornar uma requisição Put para atualizar o passeio agendado', async () => {
+    let atualizaPasseio: AtualizaAgendamentoPasseioDto;
+
+    const atualizandoPasseio = {
+      ...atualizaPasseio,
+      ValorTotalPasseio: 'R$ 900',
+    };
+
+    const passeioAtualizado =
+      await agendamentoController.atualizaPasseioAgendado(
+        agendamentoMock.id,
+        atualizandoPasseio,
+      );
+
+    expect(passeioAtualizado.ValorTotalPasseio).toEqual(
+      agendamentoMock.ValorTotalPasseio,
+    );
   });
 });

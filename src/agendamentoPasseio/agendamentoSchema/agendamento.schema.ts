@@ -12,7 +12,7 @@ export class Agendamento {
   HorarioTerminoPasseio: string;
 
   @Prop()
-  QuantidadePessoas: string;
+  QuantidadePessoas: number;
 
   @Prop()
   ValorTotalPasseio: string;

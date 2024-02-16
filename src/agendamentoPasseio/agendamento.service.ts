@@ -10,7 +10,15 @@ export class AgendamentoPasseioService {
     private agendamento: mongoose.Model<Agendamento>,
   ) {}
 
-  async retornarTodosOsPasseiosAgendados(){
-    return this.agendamento.find()
+  async retornarTodosOsPasseiosAgendados() {
+    return this.agendamento.find();
+  }
+
+  async passeioAgendadoAdicionado(
+    dadosPasseio: Agendamento,
+  ): Promise<Agendamento> {
+    const salvaPasseioAgendado: Agendamento =
+      await this.agendamento.create(dadosPasseio);
+    return salvaPasseioAgendado;
   }
 }

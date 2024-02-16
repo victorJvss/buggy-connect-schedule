@@ -8,7 +8,7 @@ export class AgendamentoPasseioDto {
   @IsNotEmpty({ message: 'Este campo não pode ser vazio' })
   HorarioTerminoPasseio: string;
   @IsNotEmpty({ message: 'Este campo não pode ser vazio' })
-  QuantidadePessoas: string;
+  QuantidadePessoas: number;
   @IsNotEmpty({ message: 'Este campo não pode ser vazio' })
   ValorTotalPasseio: string;
   @IsNotEmpty({ message: 'Este campo não pode ser vazio' })

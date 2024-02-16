@@ -1,7 +1,8 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Put } from '@nestjs/common';
 import { AgendamentoPasseioService } from './agendamento.service';
 import { AgendamentoPasseioDto } from './agendamentoDto/agendamento.dto';
 import { Agendamento } from './agendamentoSchema/agendamento.schema';
+import { AtualizaAgendamentoPasseioDto } from './agendamentoDto/AtualizaPasseioAgendado.dto';
 
 @Controller('/agendamento')
 export class AgendamentoPasseioController {
@@ -29,5 +30,18 @@ export class AgendamentoPasseioController {
       await this.agendamentoService.passeioAgendadoAdicionado(dadosPasseio);
 
     return salvaPasseioAgendado;
+  }
+
+  @Put('/:id')
+  async atualizaPasseioAgendado(
+    @Param('id') id: string,
+    @Body() dadosPasseioAtualizado: AtualizaAgendamentoPasseioDto,
+  ): Promise<Agendamento> {
+    const atualizandoPasseioAgendado: AgendamentoPasseioDto =
+      await this.agendamentoService.passeioAgendadoAtualizado(
+        id,
+        dadosPasseioAtualizado,
+      );
+    return atualizandoPasseioAgendado;
   }
 }

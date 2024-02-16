@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Agendamento } from './agendamentoSchema/agendamento.schema';
 import mongoose from 'mongoose';
+import { AtualizaAgendamentoPasseioDto } from './agendamentoDto/AtualizaPasseioAgendado.dto';
 
 @Injectable()
 export class AgendamentoPasseioService {
@@ -26,5 +27,14 @@ export class AgendamentoPasseioService {
     const salvaPasseioAgendado: Agendamento =
       await this.agendamento.create(dadosPasseio);
     return salvaPasseioAgendado;
+  }
+
+  async passeioAgendadoAtualizado(
+    id: string,
+    dadosPasseioAtualizado: AtualizaAgendamentoPasseioDto,
+  ): Promise<Agendamento> {
+    const agendamentoAtualizado: Agendamento =
+      await this.agendamento.findByIdAndUpdate(id, dadosPasseioAtualizado);
+    return agendamentoAtualizado;
   }
 }

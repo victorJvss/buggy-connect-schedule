@@ -54,4 +54,23 @@ describe('Teste do agendamento service', () => {
 
     expect(agendaPasseio.ValorTotalPasseio).toBe('R$ 600');
   });
+
+  it('Deve atualizar o passeio agendado', async () => {
+    let atualizaPasseioAgendado: AtualizaAgendamentoPasseioDto;
+
+    const atualizandoPasseio = {
+      ...atualizaPasseioAgendado,
+      QuantidadePessoas: 7,
+    };
+
+    const agendamentoPasseioAtualizado =
+      await agendamentoService.passeioAgendadoAtualizado(
+        agendamentoMock.id,
+        atualizandoPasseio,
+      );
+
+    expect(agendamentoPasseioAtualizado.QuantidadePessoas).toEqual(
+      agendamentoMock.QuantidadePessoas,
+    );
+  });
 });

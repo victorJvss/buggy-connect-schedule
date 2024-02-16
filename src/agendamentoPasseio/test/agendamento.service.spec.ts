@@ -73,4 +73,11 @@ describe('Teste do agendamento service', () => {
       agendamentoMock.QuantidadePessoas,
     );
   });
+
+  it('Deve deletar o agendamento do passeio', async () => {
+    const deletaAgendamento = await agendamentoService.passeioAgendadoDeletado(
+      agendamentoMock.id,
+    );
+    expect(deletaAgendamento).toBeTruthy();
+  });
 });

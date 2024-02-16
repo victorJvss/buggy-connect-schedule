@@ -43,11 +43,9 @@ describe('Teste do agendamento service', () => {
       titularDoAgendamento: 'Davi ribeiro',
     };
 
-    const id = '2';
-
     agendamentoService.passeioAgendadoAdicionado = jest
       .fn()
-      .mockResolvedValueOnce({ id, ...passeio });
+      .mockResolvedValueOnce({ ...passeio });
 
     const agendaPasseio =
       await agendamentoService.passeioAgendadoAdicionado(passeio);

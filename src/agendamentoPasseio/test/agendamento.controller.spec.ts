@@ -29,4 +29,25 @@ describe('Deve testar o controller do agendamento de passeio', () => {
       await agendamentoController.pegaPasseioAgendadoPeloId(agendamentoMock.id);
     expect(retornaPasseioPeloId.ValorTotalPasseio).toBe('R$ 450');
   });
+
+  it('Deve retornar uma requisição Post para criar uma passeio agendado', async () => {
+    const passeio = {
+      PasseioAgendado: 'PRAIA DE GENIPABU',
+      HorarioInícioPasseio: '15:00',
+      HorarioTerminoPasseio: '16:00',
+      QuantidadePessoas: 3,
+      ValorTotalPasseio: 'R$ 450',
+      ProfissionalPasseio: 'Roberto silva',
+      titularDoAgendamento: 'Davi ribeiro',
+    };
+
+    agendamentoController.adicionaPasseioAgendado = jest
+      .fn()
+      .mockResolvedValueOnce({ ...passeio });
+
+    const salvaPasseioAgendado =
+      await agendamentoController.adicionaPasseioAgendado(passeio);
+
+    expect(salvaPasseioAgendado.HorarioTerminoPasseio).toBe('16:00');
+  });
 });

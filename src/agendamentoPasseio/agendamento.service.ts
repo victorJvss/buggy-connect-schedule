@@ -10,7 +10,7 @@ export class AgendamentoPasseioService {
     private agendamento: mongoose.Model<Agendamento>,
   ) {}
 
-  async retornarTodosOsAgendamento(){
+  async retornarTodosOsPasseiosAgendados(){
     return this.agendamento.find()
   }
 }

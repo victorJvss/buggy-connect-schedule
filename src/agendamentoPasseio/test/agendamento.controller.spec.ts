@@ -23,4 +23,10 @@ describe('Deve testar o controller do agendamento de passeio', () => {
       await agendamentoController.pegaTodosOsPasseiosAgendados();
     expect(retornarPasseioAgendado).toEqual([agendamentoMock]);
   });
+
+  it('Deve retornar uma requisição Get para buscar um passeio agendado pelo id', async () => {
+    const retornaPasseioPeloId =
+      await agendamentoController.pegaPasseioAgendadoPeloId(agendamentoMock.id);
+    expect(retornaPasseioPeloId.ValorTotalPasseio).toBe('R$ 450');
+  });
 });

@@ -1,4 +1,12 @@
-import { Body, Controller, Get, Param, Post, Put } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  Put,
+} from '@nestjs/common';
 import { AgendamentoPasseioService } from './agendamento.service';
 import { AgendamentoPasseioDto } from './agendamentoDto/agendamento.dto';
 import { Agendamento } from './agendamentoSchema/agendamento.schema';
@@ -43,5 +51,10 @@ export class AgendamentoPasseioController {
         dadosPasseioAtualizado,
       );
     return atualizandoPasseioAgendado;
+  }
+
+  @Delete('/:id')
+  async deletaPasseioAgendado(@Param('id') id: string) {
+    return this.agendamentoService.passeioAgendadoDeletado(id);
   }
 }

@@ -37,4 +37,8 @@ export class AgendamentoPasseioService {
       await this.agendamento.findByIdAndUpdate(id, dadosPasseioAtualizado);
     return agendamentoAtualizado;
   }
+
+  async passeioAgendadoDeletado(id: string){
+    return this.agendamento.findByIdAndDelete(id)
+  }
 }

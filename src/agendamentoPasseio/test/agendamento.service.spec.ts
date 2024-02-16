@@ -4,8 +4,9 @@ import {
   agendamentoMock,
   agendamentoMockService,
 } from '../mocks/agendamento.service.mock';
+import { AtualizaAgendamentoPasseioDto } from '../agendamentoDto/AtualizaPasseioAgendado.dto';
 
-describe('Teste do agendamento controller', () => {
+describe('Teste do agendamento service', () => {
   let agendamentoService: AgendamentoPasseioService;
   beforeAll(async () => {
     const module: TestingModule = await Test.createTestingModule({
@@ -31,5 +32,26 @@ describe('Teste do agendamento controller', () => {
     expect(retornaPeloId.HorarioInícioPasseio).toBe('15:00');
   });
 
-  
+  it('Deve criar um agendamento para o passeio', async () => {
+    const passeio = {
+      PasseioAgendado: 'PRAIA DE GENIPABU',
+      HorarioInícioPasseio: '15:00',
+      HorarioTerminoPasseio: '15:40',
+      QuantidadePessoas: 3,
+      ValorTotalPasseio: 'R$ 600',
+      ProfissionalPasseio: 'Roberto silva',
+      titularDoAgendamento: 'Davi ribeiro',
+    };
+
+    const id = '2';
+
+    agendamentoService.passeioAgendadoAdicionado = jest
+      .fn()
+      .mockResolvedValueOnce({ id, ...passeio });
+
+    const agendaPasseio =
+      await agendamentoService.passeioAgendadoAdicionado(passeio);
+
+    expect(agendaPasseio.ValorTotalPasseio).toBe('R$ 600');
+  });
 });

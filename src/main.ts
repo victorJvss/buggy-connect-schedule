@@ -21,6 +21,7 @@ async function bootstrap() {
   .addTag('Usuários')
   .addTag('Endereços')
   .addTag('Passeios')
+  .addTag('Agendamento de passeio')
   .build();
 const document = SwaggerModule.createDocument(app, config);
 SwaggerModule.setup('api', app, document);

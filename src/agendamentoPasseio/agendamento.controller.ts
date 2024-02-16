@@ -11,7 +11,9 @@ import { AgendamentoPasseioService } from './agendamento.service';
 import { AgendamentoPasseioDto } from './agendamentoDto/agendamento.dto';
 import { Agendamento } from './agendamentoSchema/agendamento.schema';
 import { AtualizaAgendamentoPasseioDto } from './agendamentoDto/AtualizaPasseioAgendado.dto';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('Agendamento de passeio')
 @Controller('/agendamento')
 export class AgendamentoPasseioController {
   constructor(private agendamentoService: AgendamentoPasseioService) {}

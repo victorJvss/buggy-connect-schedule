@@ -4,7 +4,7 @@ import { Agendamento } from './agendamentoSchema/agendamento.schema';
 import mongoose from 'mongoose';
 
 @Injectable()
-export class agendamentoPasseioService {
+export class AgendamentoPasseioService {
   constructor(
     @InjectModel(Agendamento.name)
     private Agendamento: mongoose.Model<Agendamento>,

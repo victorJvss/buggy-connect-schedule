@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
-import { agendamentoPasseioController } from './agendamento.controller';
-import { agendamentoPasseioService } from './agendamento.service';
+import { AgendamentoPasseioController } from './agendamento.controller';
+import { AgendamentoPasseioService } from './agendamento.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import {
   Agendamento,
@@ -13,7 +13,7 @@ import {
       { name: Agendamento.name, schema: agendamentoSchema },
     ]),
   ],
-  controllers: [agendamentoPasseioController],
-  providers: [agendamentoPasseioService],
+  controllers: [AgendamentoPasseioController],
+  providers: [AgendamentoPasseioService],
 })
 export class AgendamentoPasseioModule {}

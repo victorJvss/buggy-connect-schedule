@@ -23,4 +23,11 @@ describe('Teste do agendamento controller', () => {
       await agendamentoService.retornarTodosOsPasseiosAgendados();
     expect(retornarPasseioAgendado).toEqual([agendamentoMock]);
   });
+
+  it('Deve retornar o passeio agendado pelo id', async () => {
+    const retornaPeloId = await agendamentoService.retornaPasseioAgendadoPeloId(
+      agendamentoMock.id,
+    );
+    expect(retornaPeloId.HorarioInícioPasseio).toBe('15:00');
+  });
 });

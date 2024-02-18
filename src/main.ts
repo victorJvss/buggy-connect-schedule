@@ -16,7 +16,7 @@ async function bootstrap() {
   )
   const config = new DocumentBuilder()
   .setTitle('Clientes')
-  .setDescription('Requisição HTTP na rota /usuarios, na rota /enderecos e na rota /passeios')
+  .setDescription('Requisição HTTP na rota /usuarios, na rota /enderecos, na rota /passeios e na rota /agendamento')
   .setVersion('1.0')
   .addTag('Usuários')
   .addTag('Endereços')

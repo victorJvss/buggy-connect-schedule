@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { mockPasseio, mockPasseioService } from '../mocks/passeio.service.mock';
 import { PasseiosController } from '../passseios.controller';
-import { AtualizaPasseioDto } from '../passeiosDto/AtualizaPasseios.dto';
+import { AtualizaPasseioDto } from '../passeiosDto/atualizaPasseios.dto';
 
 describe('Teste do  controller', () => {
   let passeioController: PasseiosController;

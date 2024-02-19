@@ -5,7 +5,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { Usuario, UsuarioSchema } from './usuarioSchema/usuario.schema';
 import { ValidaEmail } from './validador/email.validator';
 import { ValidaCpf } from './validador/cpf.validator';
-import { Endereco, EnderecoSchema } from './usuarioSchema/Endereco.schema';
+import { Endereco, EnderecoSchema } from './usuarioSchema/endereco.schema';
 import { EnderecoService } from './endereco.service';
 import { enderecoController } from './endereco.controller';
 

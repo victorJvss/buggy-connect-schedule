@@ -16,7 +16,7 @@ export class Passeios {
 
   @Prop()
   tempoPasseio: string;
-
+  
   @Prop()
   valor: string;
 }

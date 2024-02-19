@@ -4,7 +4,7 @@ import {
   agendamentoMock,
   agendamentoMockService,
 } from '../mocks/agendamento.service.mock';
-import { AtualizaAgendamentoPasseioDto } from '../agendamentoDto/AtualizaPasseioAgendado.dto';
+import { AtualizaAgendamentoPasseioDto } from '../agendamentoDto/atualizaPasseioAgendado.dto';
 
 describe('Teste do agendamento service', () => {
   let agendamentoService: AgendamentoPasseioService;

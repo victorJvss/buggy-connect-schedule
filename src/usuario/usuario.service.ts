@@ -5,7 +5,7 @@ import mongoose from 'mongoose';
 import { ClienteDto } from './usuarioDto/Cliente.dto';
 
 import { ClienteEntity } from './usuarioEntity/Cliente.entity';
-import { Endereco } from './usuarioSchema/Endereco.schema';
+import { Endereco } from './usuarioSchema/endereco.schema';
 import { EnderecoService } from './endereco.service';
 
 @Injectable()

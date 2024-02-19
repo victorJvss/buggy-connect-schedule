@@ -4,7 +4,7 @@ import {
   agendamentoMock,
   agendamentoMockService,
 } from '../mocks/agendamento.service.mock';
-import { AtualizaAgendamentoPasseioDto } from '../agendamentoDto/AtualizaPasseioAgendado.dto';
+import { AtualizaAgendamentoPasseioDto } from '../agendamentoDto/atualizaPasseioAgendado.dto';
 
 describe('Deve testar o controller do agendamento de passeio', () => {
   let agendamentoController: AgendamentoPasseioController;

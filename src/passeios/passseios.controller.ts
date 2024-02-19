@@ -8,8 +8,8 @@ import {
   Put,
 } from '@nestjs/common';
 import { PasseiosService } from './passeios.service';
-import { PasseiosDto } from './passeiosDto/Passeios.dto';
-import { AtualizaPasseioDto } from './passeiosDto/AtualizaPasseios.dto';
+import { PasseiosDto } from './passeiosDto/passeios.dto';
+import { AtualizaPasseioDto } from './passeiosDto/atualizaPasseios.dto';
 import { ApiTags } from '@nestjs/swagger';
 
 @ApiTags('Passeios')

@@ -10,7 +10,7 @@ import {
 import { AgendamentoPasseioService } from './agendamento.service';
 import { AgendamentoPasseioDto } from './agendamentoDto/agendamento.dto';
 import { Agendamento } from './agendamentoSchema/agendamento.schema';
-import { AtualizaAgendamentoPasseioDto } from './agendamentoDto/AtualizaPasseioAgendado.dto';
+import { AtualizaAgendamentoPasseioDto } from './agendamentoDto/atualizaPasseioAgendado.dto';
 import { ApiTags } from '@nestjs/swagger';
 
 @ApiTags('Agendamento de passeio')

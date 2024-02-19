@@ -4,7 +4,7 @@ import {
   ContaPessoalDto,
   ContaProfissionalDto,
 } from 'src/usuario/usuarioDto/TipoDeConta.dto';
-import { Endereco } from './Endereco.schema';
+import { Endereco } from './endereco.schema';
 
 @Schema({ timestamps: true })
 export class Usuario extends Model {

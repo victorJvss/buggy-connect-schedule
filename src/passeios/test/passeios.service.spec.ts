@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { PasseiosService } from '../passeios.service';
 import { mockPasseio, mockPasseioService } from '../mocks/passeio.service.mock';
-import { AtualizaPasseioDto } from '../passeiosDto/AtualizaPasseios.dto';
+import { AtualizaPasseioDto } from '../passeiosDto/atualizaPasseios.dto';
 
 describe('Teste passeio service', () => {
   let passeioService: PasseiosService;

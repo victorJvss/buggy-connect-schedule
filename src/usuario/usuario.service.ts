@@ -2,9 +2,8 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Usuario } from './usuarioSchema/usuario.schema';
 import mongoose from 'mongoose';
-import { ClienteDto } from './usuarioDto/Cliente.dto';
-
-import { ClienteEntity } from './usuarioEntity/Cliente.entity';
+import { UsuarioDto } from './usuarioDto/Cliente.dto';
+import { UsuarioEntity } from './usuarioEntity/Cliente.entity';
 import { Endereco } from './usuarioSchema/endereco.schema';
 import { EnderecoService } from './endereco.service';
 
@@ -18,7 +17,7 @@ export class UsuarioService {
 
   // cliente
 
-  async criaUsuario(usuarioCriado: ClienteEntity): Promise<Usuario> {
+  async criaUsuario(usuarioCriado: UsuarioEntity): Promise<Usuario> {
     const salvaUsuario: Usuario = await this.usuario.create(usuarioCriado);
     this.enderecoService.salvaEndereco(salvaUsuario.endereco);
     return salvaUsuario;
@@ -36,8 +35,8 @@ export class UsuarioService {
 
   async atualizaUsuario(
     id: string,
-    dadosAtualizados: ClienteDto,
-  ): Promise<ClienteDto> {
+    dadosAtualizados: UsuarioDto,
+  ): Promise<UsuarioDto> {
     const usuarioEncontrado: Usuario = await this.usuario.findByIdAndUpdate(
       id,
       dadosAtualizados,

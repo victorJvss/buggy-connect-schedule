@@ -4,7 +4,7 @@ import {
 } from '../usuarioDto/TipoDeConta.dto';
 import { EnderecoEntity } from './EnderecoCliente.entity';
 
-export class ClienteEntity {
+export class UsuarioEntity {
   nome: string;
   telefone: number;
   email: string;

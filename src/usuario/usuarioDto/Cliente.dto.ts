@@ -13,7 +13,7 @@ import { emailValidado } from '../validador/email.validator';
 import { cpfValidado } from '../validador/cpf.validator';
 import { ApiProperty } from '@nestjs/swagger';
 
-export class ClienteDto {
+export class UsuarioDto {
   @ApiProperty()
   @IsNotEmpty({ message: 'O campo nome não pode ser vazio!' })
   @MaxLength(30, { message: 'O campo nome deve ter no máximo 30 caracteres' })

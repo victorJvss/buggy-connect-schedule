@@ -9,8 +9,8 @@ import {
 } from '@nestjs/common';
 
 import { UsuarioService } from './usuario.service';
-import { ClienteDto } from './usuarioDto/Cliente.dto';
-import { ClienteEntity } from './usuarioEntity/Cliente.entity';
+import { UsuarioDto } from './usuarioDto/Cliente.dto';
+import { UsuarioEntity } from './usuarioEntity/Cliente.entity';
 import { AtualizaClienteDto } from './usuarioDto/AtualizaDadosUsuario.tdo';
 import { Usuario } from './usuarioSchema/usuario.schema';
 import { ApiTags } from '@nestjs/swagger';
@@ -21,8 +21,8 @@ export class usuarioController {
   constructor(private usuarioService: UsuarioService) {}
 
   @Post()
-  async enviaUsuario(@Body() dadosEnviado: ClienteDto) {
-    const usuarioEntity = new ClienteEntity();
+  async enviaUsuario(@Body() dadosEnviado: UsuarioDto) {
+    const usuarioEntity = new UsuarioEntity();
 
     usuarioEntity.nome = dadosEnviado.nome;
     usuarioEntity.telefone = dadosEnviado.telefone;

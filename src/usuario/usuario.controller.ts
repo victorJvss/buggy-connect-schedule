@@ -65,9 +65,18 @@ export class usuarioController {
     return pegaUsuario;
   }
 
-  @Put('/:id')
+  @Put('/:id?/:email?/:cpf?')
+  @ApiParam({
+    name: 'id',
+    required: false,
+    description: 'Insira o id, cpf ou email',
+  })
+  @ApiParam({ name: 'email', type: query })
+  @ApiParam({ name: 'cpf', type: query })
   async atualizaUsuario(
     @Param('id') id: string,
+    @Param('email') email: string,
+    @Param('cpf') cpf: string,
     @Body() dadosUsuario: AtualizaClienteDto,
   ) {
     const atualizaUsuario = await this.usuarioService.atualizaUsuario(

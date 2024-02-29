@@ -58,11 +58,14 @@ export class UsuarioService {
     dadosAtualizados: UsuarioDto,
   ): Promise<Usuario | string> {
     try {
+      const buscaUsuario: Usuario = await this.encontraUsuario(id);
       const usuarioEncontrado: Usuario = await this.usuario.findByIdAndUpdate(
-        id,
+        buscaUsuario._id,
         dadosAtualizados,
       );
-      return usuarioEncontrado;
+      const usuarioAtualizado = await this.usuario.findOne(buscaUsuario._id);
+
+      return usuarioAtualizado;
     } catch {
       return 'Não foi possível atualizar o usuário';
     }

@@ -37,7 +37,7 @@ export class UsuarioService {
     }
   }
 
-  async pegaUsuarioPeloId(id: string): Promise<any> {
+  async pegaUsuarioPeloId(id: string): Promise<Usuario | object> {
     try {
       const regexEmail =
         /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -65,23 +65,31 @@ export class UsuarioService {
   async atualizaUsuario(
     id: string,
     dadosAtualizados: UsuarioDto,
-  ): Promise<UsuarioDto> {
-    const usuarioEncontrado: Usuario = await this.usuario.findByIdAndUpdate(
-      id,
-      dadosAtualizados,
-    );
-    return usuarioEncontrado;
+  ): Promise<Usuario | string> {
+    try {
+      const usuarioEncontrado: Usuario = await this.usuario.findByIdAndUpdate(
+        id,
+        dadosAtualizados,
+      );
+      return usuarioEncontrado;
+    } catch {
+      return 'Não foi possível atualizar o usuário';
+    }
   }
 
   async deletaUsuario(id: string): Promise<object> {
-    const procuraUsuario: Usuario = await this.usuario.findById(id);
-    const enderecoUsuaio: Endereco = procuraUsuario.endereco;
-    const Endereco = await this.enderecoService.apagaEndereco(enderecoUsuaio);
-    const usuario = await this.usuario.deleteOne({ _id: id });
-    return {
-      message: 'Usuário removido com sucesso!',
-      usuarioRemovido: usuario,
-    };
+    try {
+      const procuraUsuario: Usuario = await this.usuario.findById(id);
+      const enderecoUsuaio: Endereco = procuraUsuario.endereco;
+      const Endereco = await this.enderecoService.apagaEndereco(enderecoUsuaio);
+      const usuario = await this.usuario.deleteOne({ _id: id });
+      return {
+        message: 'Usuário removido com sucesso!',
+        usuarioRemovido: usuario,
+      };
+    } catch {
+      return { message: 'Não foi possível excluir o usuário' };
+    }
   }
 
   // Validation

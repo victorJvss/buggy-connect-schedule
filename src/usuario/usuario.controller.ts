@@ -14,6 +14,7 @@ import { UsuarioEntity } from './usuarioEntity/Cliente.entity';
 import { AtualizaClienteDto } from './usuarioDto/AtualizaDadosUsuario.tdo';
 import { ApiParam, ApiTags } from '@nestjs/swagger';
 import { query } from 'express';
+import { Usuario } from './usuarioSchema/usuario.schema';
 
 @ApiTags('Usuários')
 @Controller('/usuarios')
@@ -57,15 +58,11 @@ export class usuarioController {
     @Param('id') id?: string,
     @Param('email') email?: string,
     @Param('cpf') cpf?: string,
-  ): Promise<any> {
-    try {
-      const pegaUsuario = await this.usuarioService.pegaUsuarioPeloId(
-        id || email || cpf,
-      );
-      return pegaUsuario;
-    } catch {
-      return;
-    }
+  ): Promise<Usuario | object> {
+    const pegaUsuario = await this.usuarioService.pegaUsuarioPeloId(
+      id || email || cpf,
+    );
+    return pegaUsuario;
   }
 
   @Put('/:id')

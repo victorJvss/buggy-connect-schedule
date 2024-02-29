@@ -12,8 +12,8 @@ import { UsuarioService } from './usuario.service';
 import { UsuarioDto } from './usuarioDto/Cliente.dto';
 import { UsuarioEntity } from './usuarioEntity/Cliente.entity';
 import { AtualizaClienteDto } from './usuarioDto/AtualizaDadosUsuario.tdo';
-import { Usuario } from './usuarioSchema/usuario.schema';
-import { ApiTags } from '@nestjs/swagger';
+import { ApiParam, ApiTags } from '@nestjs/swagger';
+import { query } from 'express';
 
 @ApiTags('Usuários')
 @Controller('/usuarios')
@@ -45,9 +45,27 @@ export class usuarioController {
     return this.usuarioService.pegaUsuarios();
   }
 
-  @Get('/:id')
-  async pegaUsuarioPeloId(@Param('id') id: string): Promise<Usuario> {
-    return this.usuarioService.pegaUsuarioPeloId(id);
+  @Get('/:id?/:email?/:cpf?')
+  @ApiParam({
+    name: 'id',
+    required: false,
+    description: 'Insira o id, cpf ou email',
+  })
+  @ApiParam({ name: 'email', type: query })
+  @ApiParam({ name: 'cpf', type: query })
+  async pegaUsuarioPorParametro(
+    @Param('id') id?: string,
+    @Param('email') email?: string,
+    @Param('cpf') cpf?: string,
+  ): Promise<any> {
+    try {
+      const pegaUsuario = await this.usuarioService.pegaUsuarioPeloId(
+        id || email || cpf,
+      );
+      return pegaUsuario;
+    } catch {
+      return;
+    }
   }
 
   @Put('/:id')
@@ -68,4 +86,3 @@ export class usuarioController {
     return this.usuarioService.deletaUsuario(id);
   }
 }
-

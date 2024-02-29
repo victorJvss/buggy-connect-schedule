@@ -28,9 +28,38 @@ export class UsuarioService {
     return usuarios;
   }
 
-  async pegaUsuarioPeloId(id: string): Promise<Usuario> {
-    const pegaUsuario: Usuario = await this.usuario.findById(id);
-    return pegaUsuario;
+  async pegaUsuarioPorCpf(cpf: string): Promise<Usuario> {
+    try {
+      const pegaUsuario: Usuario[] = await this.usuario.find({ cpf: cpf });
+      return pegaUsuario[0];
+    } catch {
+      return;
+    }
+  }
+
+  async pegaUsuarioPeloId(id: string): Promise<any> {
+    try {
+      const regexEmail =
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+      const regexCpf = /\d{11}/;
+
+      if (regexEmail.test(id)) {
+        const pegaUsuario: Usuario[] = await this.usuario.find({ email: id });
+        return pegaUsuario[0];
+      } else if (regexCpf.test(id)) {
+        const pegaUsuario: Usuario[] = await this.usuario.find({ cpf: id });
+        return pegaUsuario[0];
+      } else {
+        const pegaUsuario: Usuario[] = await this.usuario.find({ _id: id });
+        return pegaUsuario[0];
+      }
+    } catch (erro) {
+      return {
+        message: 'O usuario é encontrado por id, cpf e email',
+        erro: erro,
+      };
+    }
   }
 
   async atualizaUsuario(

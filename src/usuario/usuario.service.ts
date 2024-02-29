@@ -28,37 +28,28 @@ export class UsuarioService {
     return usuarios;
   }
 
-  async pegaUsuarioPorCpf(cpf: string): Promise<Usuario> {
+  async pegaUsuarioPorParametro(
+    dadoEnviado: string,
+  ): Promise<Usuario | object> {
     try {
-      const pegaUsuario: Usuario[] = await this.usuario.find({ cpf: cpf });
-      return pegaUsuario[0];
-    } catch {
-      return;
+      const usuarioEncontrado = await this.encontraUsuario(dadoEnviado);
+      return usuarioEncontrado;
+    } catch (erro) {
+      return {
+        message:
+          'O usuario é encontrado por id, cpf e email, verifique se o dado que você inseriu está correto',
+        erro: erro,
+      };
     }
   }
 
-  async pegaUsuarioPeloId(id: string): Promise<Usuario | object> {
-    try {
-      const regexEmail =
-        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-
-      const regexCpf = /\d{11}/;
-
-      if (regexEmail.test(id)) {
-        const pegaUsuario: Usuario[] = await this.usuario.find({ email: id });
-        return pegaUsuario[0];
-      } else if (regexCpf.test(id)) {
-        const pegaUsuario: Usuario[] = await this.usuario.find({ cpf: id });
-        return pegaUsuario[0];
-      } else {
-        const pegaUsuario: Usuario[] = await this.usuario.find({ _id: id });
-        return pegaUsuario[0];
-      }
-    } catch (erro) {
-      return {
-        message: 'O usuario é encontrado por id, cpf e email',
-        erro: erro,
-      };
+  private async encontraUsuario(dadoEnviado: string) {
+    if (this.regexEmail(dadoEnviado)) {
+      return await this.usuario.findOne({ email: dadoEnviado });
+    } else if (this.regexCpf(dadoEnviado)) {
+      return await this.usuario.findOne({ cpf: dadoEnviado });
+    } else {
+      return await this.usuario.findOne({ _id: dadoEnviado });
     }
   }
 
@@ -114,5 +105,20 @@ export class UsuarioService {
     } else {
       return !boolean;
     }
+  }
+
+  // Regex
+
+  private regexEmail(dado: string): boolean {
+    const regexEmail =
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+    return regexEmail.test(dado);
+  }
+
+  private regexCpf(dado: string): boolean {
+    const regexCpf = /\d{11}/;
+
+    return regexCpf.test(dado);
   }
 }

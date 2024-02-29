@@ -59,7 +59,7 @@ export class usuarioController {
     @Param('email') email?: string,
     @Param('cpf') cpf?: string,
   ): Promise<Usuario | object> {
-    const pegaUsuario = await this.usuarioService.pegaUsuarioPeloId(
+    const pegaUsuario = await this.usuarioService.pegaUsuarioPorParametro(
       id || email || cpf,
     );
     return pegaUsuario;

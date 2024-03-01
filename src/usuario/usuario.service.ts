@@ -44,12 +44,16 @@ export class UsuarioService {
   }
 
   private async encontraUsuario(dadoEnviado: string) {
-    if (this.regexEmail(dadoEnviado)) {
-      return await this.usuario.findOne({ email: dadoEnviado });
-    } else if (this.regexCpf(dadoEnviado)) {
-      return await this.usuario.findOne({ cpf: dadoEnviado });
-    } else {
-      return await this.usuario.findOne({ _id: dadoEnviado });
+    try {
+      if (this.regexEmail(dadoEnviado)) {
+        return await this.usuario.findOne({ email: dadoEnviado });
+      } else if (this.regexCpf(dadoEnviado)) {
+        return await this.usuario.findOne({ cpf: dadoEnviado });
+      } else {
+        return await this.usuario.findOne({ _id: dadoEnviado });
+      }
+    } catch {
+      return;
     }
   }
 
@@ -67,16 +71,16 @@ export class UsuarioService {
 
       return usuarioAtualizado;
     } catch {
-      return 'Não foi possível atualizar o usuário';
+      return 'Não foi possível atualizar o usuário,verifique se o dado que você inseriu está correto';
     }
   }
 
   async deletaUsuario(id: string): Promise<object> {
     try {
-      const procuraUsuario: Usuario = await this.usuario.findById(id);
-      const enderecoUsuaio: Endereco = procuraUsuario.endereco;
+      const tipoDeBusca: Usuario = await this.encontraUsuario(id);
+      const enderecoUsuaio: Endereco = tipoDeBusca.endereco;
       const Endereco = await this.enderecoService.apagaEndereco(enderecoUsuaio);
-      const usuario = await this.usuario.deleteOne({ _id: id });
+      const usuario = await this.usuario.findByIdAndDelete(tipoDeBusca._id);
       return {
         message: 'Usuário removido com sucesso!',
         usuarioRemovido: usuario,

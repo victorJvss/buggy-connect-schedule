@@ -52,16 +52,10 @@ export class usuarioController {
     required: false,
     description: 'Insira o id, cpf ou email',
   })
-  @ApiParam({ name: 'email', type: query })
-  @ApiParam({ name: 'cpf', type: query })
   async pegaUsuarioPorParametro(
-    @Param('id') id?: string,
-    @Param('email') email?: string,
-    @Param('cpf') cpf?: string,
+    @Param('id') id: string,
   ): Promise<Usuario | object> {
-    const pegaUsuario = await this.usuarioService.pegaUsuarioPorParametro(
-      id || email || cpf,
-    );
+    const pegaUsuario = await this.usuarioService.pegaUsuarioPorParametro(id);
     return pegaUsuario;
   }
 
@@ -71,12 +65,8 @@ export class usuarioController {
     required: false,
     description: 'Insira o id, cpf ou email',
   })
-  @ApiParam({ name: 'email', type: query })
-  @ApiParam({ name: 'cpf', type: query })
   async atualizaUsuario(
     @Param('id') id: string,
-    @Param('email') email: string,
-    @Param('cpf') cpf: string,
     @Body() dadosUsuario: AtualizaClienteDto,
   ) {
     const atualizaUsuario = await this.usuarioService.atualizaUsuario(
@@ -87,8 +77,14 @@ export class usuarioController {
     return atualizaUsuario;
   }
 
-  @Delete('/:id')
+  @ApiParam({
+    name: 'id',
+    required: false,
+    description: 'Insira o id, cpf ou email',
+  })
+  @Delete('/:id?/:email?/:cpf?')
   async removeUsuario(@Param('id') id: string): Promise<object> {
-    return this.usuarioService.deletaUsuario(id);
+    const usuarioDeletado = await this.usuarioService.deletaUsuario(id);
+    return usuarioDeletado
   }
 }

@@ -32,7 +32,9 @@ export class UsuarioService {
     dadoEnviado: string,
   ): Promise<Usuario | object> {
     try {
-      const usuarioEncontrado = await this.encontraUsuario(dadoEnviado);
+      const usuarioEncontrado: Usuario =
+        await this.encontraUsuario(dadoEnviado);
+
       return usuarioEncontrado;
     } catch (erro) {
       return {
@@ -43,7 +45,7 @@ export class UsuarioService {
     }
   }
 
-  private async encontraUsuario(dadoEnviado: string) {
+  private async encontraUsuario(dadoEnviado: string): Promise<Usuario> {
     try {
       if (this.regexEmail(dadoEnviado)) {
         return await this.usuario.findOne({ email: dadoEnviado });
@@ -93,7 +95,7 @@ export class UsuarioService {
   // Validation
 
   async filtraUsuarioCadastradoEmail(email: string): Promise<boolean> {
-    const filtraUsuario = await this.usuario.find({ email: email });
+    const filtraUsuario: Usuario[] = await this.usuario.find({ email: email });
     const boolean: boolean = true;
 
     if (filtraUsuario.length > 0) {
@@ -104,7 +106,7 @@ export class UsuarioService {
   }
 
   async filtraUsuarioCadastradoCpf(cpf: string): Promise<boolean> {
-    const filtraUsuario = await this.usuario.find({ cpf: cpf });
+    const filtraUsuario: Usuario[] = await this.usuario.find({ cpf: cpf });
     const boolean: boolean = true;
 
     if (filtraUsuario.length > 0) {

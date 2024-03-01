@@ -12,8 +12,7 @@ import { UsuarioService } from './usuario.service';
 import { UsuarioDto } from './usuarioDto/Cliente.dto';
 import { UsuarioEntity } from './usuarioEntity/Cliente.entity';
 import { AtualizaClienteDto } from './usuarioDto/AtualizaDadosUsuario.tdo';
-import { ApiParam, ApiTags } from '@nestjs/swagger';
-import { query } from 'express';
+import { ApiOperation, ApiParam, ApiTags } from '@nestjs/swagger';
 import { Usuario } from './usuarioSchema/usuario.schema';
 
 @ApiTags('Usuários')
@@ -42,11 +41,19 @@ export class usuarioController {
   }
 
   @Get()
+  @ApiOperation({
+    description:
+      'Clique em try it out e em execute para fazer a requiseção Get nos usuários',
+  })
   async pegaUsuarios() {
     return this.usuarioService.pegaUsuarios();
   }
 
   @Get('/:id?/:email?/:cpf?')
+  @ApiOperation({
+    description:
+      'Insira o id cpf ou e-mail no input a baixo para pesquisar o usuário desejado',
+  })
   @ApiParam({
     name: 'id',
     required: false,
@@ -60,6 +67,10 @@ export class usuarioController {
   }
 
   @Put('/:id?/:email?/:cpf?')
+  @ApiOperation({
+    description:
+      'Insira o id cpf ou e-mail no input a baixo para atualizar o usuário desejado',
+  })
   @ApiParam({
     name: 'id',
     required: false,
@@ -77,14 +88,18 @@ export class usuarioController {
     return atualizaUsuario;
   }
 
+  @Delete('/:id?/:email?/:cpf?')
   @ApiParam({
     name: 'id',
     required: false,
     description: 'Insira o id, cpf ou email',
   })
-  @Delete('/:id?/:email?/:cpf?')
+  @ApiOperation({
+    description:
+      'Insira o id cpf ou e-mail no input a baixo para deletar o usuário desejado',
+  })
   async removeUsuario(@Param('id') id: string): Promise<object> {
     const usuarioDeletado = await this.usuarioService.deletaUsuario(id);
-    return usuarioDeletado
+    return usuarioDeletado;
   }
 }

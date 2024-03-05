@@ -20,12 +20,20 @@ describe('Teste usuário service', () => {
     expect(pegaTodosOsUsuarios).toEqual([usuarioMockService]);
   });
 
-  it('Deve retornar usuário buscado pelo id', async () => {
-    const retornaUsuarioPeloId = await serviceUsuario.pegaUsuarioPeloId(
-      usuarioMockService.id,
+  it('Deve retornar usuário buscado por parametro', async () => {
+    const usuarioMock = {
+      ...usuarioMockService,
+    };
+
+    serviceUsuario.pegaUsuarioPorParametro = jest
+      .fn()
+      .mockReturnValueOnce(usuarioMock);
+
+    const resultado = await serviceUsuario.pegaUsuarioPorParametro(
+      usuarioMock.id,
     );
 
-    expect(retornaUsuarioPeloId).toEqual(usuarioMockService);
+    expect(resultado).toEqual(usuarioMock);
   });
 
   it('Deve retornar a atualização do usuário', async () => {

@@ -62,7 +62,7 @@ export class UsuarioService {
   async atualizaUsuario(
     id: string,
     dadosAtualizados: UsuarioDto,
-  ): Promise<Usuario | string> {
+  ): Promise<Usuario | any> {
     try {
       const buscaUsuario: Usuario = await this.encontraUsuario(id);
       const usuarioEncontrado: Usuario = await this.usuario.findByIdAndUpdate(

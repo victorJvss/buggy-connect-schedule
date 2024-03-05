@@ -1,4 +1,4 @@
-import { ClienteEntity } from '../usuarioEntity/Cliente.entity';
+import { UsuarioEntity } from '../usuarioEntity/Cliente.entity';
 import { DadosCnh } from '../usuarioEntity/DadosCnh.entity';
 import { MetodoRecebimento } from '../usuarioEntity/MetodoRecebimento.entity';
 import { TipoDeBuggy } from '../usuarioEntity/TipoDeCarro.entity';
@@ -8,7 +8,7 @@ import {
 } from '../usuarioEntity/TipoDeConta.entity';
 
 describe('Deve testar o entity cliente', () => {
-  const clienteEntity = new ClienteEntity();
+  const clienteEntity = new UsuarioEntity();
   const dadosCnh = new DadosCnh();
   const metodoRecebimento = new MetodoRecebimento();
   const tipoDeCarro = new TipoDeBuggy();
@@ -42,6 +42,6 @@ describe('Deve testar o entity cliente', () => {
 
   it('Teste no entity ContaProfissional', () => {
     contaProfissional.sexo = 'Feminino';
-    expect(contaProfissional.sexo).toBe('Feminino')
+    expect(contaProfissional.sexo).toBe('Feminino');
   });
 });

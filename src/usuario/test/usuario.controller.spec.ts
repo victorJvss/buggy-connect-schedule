@@ -16,8 +16,18 @@ describe('Teste do controller usuarios', () => {
     UsuarioController = module.get<usuarioController>(usuarioController);
   });
 
-  it('Pega usuário pelo id', async () => {
-    const result = await UsuarioController.pegaUsuarioPeloId(usuarioMock.id);
+  it('Pega usuário por parâmetro', async () => {
+    const mockUsuario = {
+      ...usuarioMock,
+    };
+
+    UsuarioController.pegaUsuarioPorParametro = jest
+      .fn()
+      .mockReturnValueOnce(mockUsuario);
+
+    const result = await UsuarioController.pegaUsuarioPorParametro(
+      mockUsuario.id,
+    );
     expect(result).toEqual(usuarioMock);
   });
 
@@ -37,7 +47,7 @@ describe('Teste do controller usuarios', () => {
   });
 
   it('Cria usuário', async () => {
-    const novoUsuario = { ...usuarioMock};
+    const novoUsuario = { ...usuarioMock };
     delete usuarioMock.id;
     delete usuarioMock.endereco.id;
     const result = await UsuarioController.enviaUsuario(novoUsuario);
@@ -63,7 +73,7 @@ describe('Teste do controller usuarios', () => {
   });
 
   it('Deleta usuário', async () => {
-    const deletaUsuario = await UsuarioController.removeUsuario(usuarioMock.id)
-    expect(deletaUsuario).toEqual(true)
-  })
+    const deletaUsuario = await UsuarioController.removeUsuario(usuarioMock.id);
+    expect(deletaUsuario).toEqual(true);
+  });
 });

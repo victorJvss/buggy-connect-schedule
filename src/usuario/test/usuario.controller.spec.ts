@@ -43,7 +43,7 @@ describe('Teste do controller usuarios', () => {
       usuarioMock.id,
       atualizaUsuarios,
     );
-    expect(resultadoAtualizacao.nome).toEqual(usuarioMock.nome);
+    expect(resultadoAtualizacao).toEqual(usuarioMock);
   });
 
   it('Cria usuário', async () => {

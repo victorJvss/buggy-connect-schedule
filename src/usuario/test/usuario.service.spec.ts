@@ -43,7 +43,7 @@ describe('Teste usuário service', () => {
       usuarioMockService.id,
       atualizaUsuarios,
     );
-    expect(resultadoAtualizacao.nome).toEqual(usuarioMockService.nome);
+    expect(resultadoAtualizacao).toEqual(usuarioMockService);
   });
 
   it('Deve criar um usuário', async () => {

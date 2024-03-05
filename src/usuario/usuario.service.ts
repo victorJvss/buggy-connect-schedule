@@ -7,6 +7,7 @@ import { UsuarioEntity } from './usuarioEntity/Cliente.entity';
 import { Endereco } from './usuarioSchema/endereco.schema';
 import { EnderecoService } from './endereco.service';
 
+
 @Injectable()
 export class UsuarioService {
   constructor(
@@ -66,7 +67,7 @@ export class UsuarioService {
   async atualizaUsuario(
     id: string,
     dadosAtualizados: UsuarioDto,
-  ): Promise<Usuario> {
+  ): Promise<Usuario | string> {
     try {
       const buscaUsuario: Usuario[0] = await this.encontraUsuario(id);
 
@@ -82,7 +83,8 @@ export class UsuarioService {
 
       return usuarioAtualizado;
     } catch (erro) {
-      return erro;
+      return (erro.message =
+        'Usuario não encontrado, verifique se o dado que inseriu é um id, cpf ou email');
     }
   }
 

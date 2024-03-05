@@ -32,20 +32,24 @@ export class UsuarioService {
     dadoEnviado: string,
   ): Promise<Usuario | object> {
     try {
-      const usuarioEncontrado: Usuario =
+      const usuarioEncontrado: Usuario[] =
         await this.encontraUsuario(dadoEnviado);
+
+      if (usuarioEncontrado.length == 0) {
+        throw new Error();
+      }
 
       return usuarioEncontrado;
     } catch (erro) {
       return {
         message:
           'O usuario é encontrado por id, cpf e email, verifique se o dado que você inseriu está correto',
-        erro: erro,
+        erro: (erro.message = 'Usuário não encontrado'),
       };
     }
   }
 
-  private async encontraUsuario(dadoEnviado: string): Promise<Usuario> {
+  private async encontraUsuario(dadoEnviado: string): Promise<Usuario[]> {
     try {
       if (this.regexEmail(dadoEnviado)) {
         return await this.usuario.findOne({ email: dadoEnviado });
@@ -62,9 +66,14 @@ export class UsuarioService {
   async atualizaUsuario(
     id: string,
     dadosAtualizados: UsuarioDto,
-  ): Promise<Usuario | any> {
+  ): Promise<Usuario> {
     try {
-      const buscaUsuario: Usuario = await this.encontraUsuario(id);
+      const buscaUsuario: Usuario[0] = await this.encontraUsuario(id);
+
+      if (buscaUsuario.length == 0) {
+        throw new Error();
+      }
+
       const usuarioEncontrado: Usuario = await this.usuario.findByIdAndUpdate(
         buscaUsuario._id,
         dadosAtualizados,
@@ -72,14 +81,14 @@ export class UsuarioService {
       const usuarioAtualizado = await this.usuario.findOne(buscaUsuario._id);
 
       return usuarioAtualizado;
-    } catch {
-      return 'Não foi possível atualizar o usuário,verifique se o dado que você inseriu está correto';
+    } catch (erro) {
+      return erro;
     }
   }
 
   async deletaUsuario(id: string): Promise<object> {
     try {
-      const tipoDeBusca: Usuario = await this.encontraUsuario(id);
+      const tipoDeBusca: Usuario[0] = await this.encontraUsuario(id);
       const enderecoUsuaio: Endereco = tipoDeBusca.endereco;
       const Endereco = await this.enderecoService.apagaEndereco(enderecoUsuaio);
       const usuario = await this.usuario.findByIdAndDelete(tipoDeBusca._id);

@@ -1,4 +1,4 @@
-import { PasseiosEntity } from '../passeiosEntity/passeios.entity';
+import { PasseiosEntity } from '../passeiosEntity/passeios.entity.js';
 
 describe('Deve testar o entity passeios', () => {
   const passeioEntity = new PasseiosEntity();

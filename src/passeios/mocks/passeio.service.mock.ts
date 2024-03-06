@@ -1,4 +1,4 @@
-import { PasseiosService } from '../passeios.service';
+import { PasseiosService } from '../passeios.service.js';
 
 export const mockPasseio = {
   id: '1',
@@ -26,3 +26,4 @@ export const mockPasseioService = {
     deletaPasseio: jest.fn().mockResolvedValue(true),
   },
 };
+''

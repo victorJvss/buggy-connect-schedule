@@ -7,11 +7,11 @@ import {
   Post,
   Put,
 } from '@nestjs/common';
-import { AgendamentoPasseioService } from './agendamento.service';
-import { AgendamentoPasseioDto } from './agendamentoDto/agendamento.dto';
-import { Agendamento } from './agendamentoSchema/agendamento.schema';
-import { AtualizaAgendamentoPasseioDto } from './agendamentoDto/atualizaPasseioAgendado.dto';
 import { ApiTags } from '@nestjs/swagger';
+import { AgendamentoPasseioService } from './agendamento.service.js';
+import { AgendamentoPasseioDto } from './agendamentoDto/agendamento.dto.js';
+import { Agendamento } from './agendamentoSchema/agendamento.schema.js';
+import { AtualizaAgendamentoPasseioDto } from './agendamentoDto/atualizaPasseioAgendado.dto.js';
 
 @ApiTags('Agendamento de passeio')
 @Controller('/agendamento')

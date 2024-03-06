@@ -1,4 +1,4 @@
-import { AgendamentoPasseioService } from '../agendamento.service';
+import { AgendamentoPasseioService } from '../agendamento.service.js';
 
 export const agendamentoMock = {
   id: '1',

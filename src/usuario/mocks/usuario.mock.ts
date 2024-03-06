@@ -1,4 +1,4 @@
-import { UsuarioService } from '../usuario.service';
+import { UsuarioService } from '../usuario.service.js';
 
 export const usuarioMock = {
   id: '1',

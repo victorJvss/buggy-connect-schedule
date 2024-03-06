@@ -1,9 +1,9 @@
 import { InjectModel } from '@nestjs/mongoose';
-import { Endereco } from './usuarioSchema/endereco.schema';
 import mongoose from 'mongoose';
 import { Injectable } from '@nestjs/common';
-import { EnderecoDto } from './usuarioDto/EnderecoCliente.dto';
-import { Usuario } from './usuarioSchema/usuario.schema';
+import { Endereco } from './usuarioSchema/endereco.schema.js';
+import { EnderecoDto } from './usuarioDto/EnderecoCliente.dto.js';
+import { Usuario } from './usuarioSchema/usuario.schema.js';
 
 @Injectable()
 export class EnderecoService {

@@ -6,12 +6,12 @@ import {
   MinLength,
   ValidateNested,
 } from 'class-validator';
-import { EnderecoDto } from './EnderecoCliente.dto';
-import { ContaPessoalDto, ContaProfissionalDto } from './TipoDeConta.dto';
 import { Type } from 'class-transformer';
-import { emailValidado } from '../validador/email.validator';
-import { cpfValidado } from '../validador/cpf.validator';
 import { ApiProperty } from '@nestjs/swagger';
+import { EnderecoDto } from './EnderecoCliente.dto.js';
+import { ContaPessoalDto, ContaProfissionalDto } from './TipoDeConta.dto.js';
+import { emailValidado } from '../validador/email.validator.js';
+import { cpfValidado } from '../validador/cpf.validator.js';
 
 export class UsuarioDto {
   @ApiProperty()

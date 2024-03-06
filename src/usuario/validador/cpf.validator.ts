@@ -5,7 +5,7 @@ import {
   ValidatorConstraintInterface,
   registerDecorator,
 } from 'class-validator';
-import { UsuarioService } from '../usuario.service';
+import { UsuarioService } from '../usuario.service.js';
 
 Injectable();
 @ValidatorConstraint({ async: true })

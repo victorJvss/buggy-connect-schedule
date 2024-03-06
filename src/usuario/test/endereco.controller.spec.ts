@@ -1,8 +1,8 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { enderecoController } from '../endereco.controller';
-import { enderecoMock, enderecoServiceMock } from '../mocks/endereco.mock';
-import { AtualizaEnderecoDto } from '../usuarioDto/AtualizaEndereco.dto';
-import { Endereco } from '../usuarioSchema/endereco.schema';
+import { enderecoController } from '../endereco.controller.js';
+import { enderecoMock, enderecoServiceMock } from '../mocks/endereco.mock.js';
+import { AtualizaEnderecoDto } from '../usuarioDto/AtualizaEndereco.dto.js';
+import { Endereco } from '../usuarioSchema/endereco.schema.js';
 
 describe('Teste controller endereço', () => {
   let EnderecoController: enderecoController;

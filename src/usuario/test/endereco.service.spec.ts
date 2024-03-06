@@ -1,8 +1,8 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { EnderecoService } from '../endereco.service';
-import { enderecoServiceMock } from '../mocks/endereco.mock';
-import { enderecoMockService } from '../mocks/endereco.service.mock';
-import { AtualizaEnderecoDto } from '../usuarioDto/AtualizaEndereco.dto';
+import { EnderecoService } from '../endereco.service.js';
+import { enderecoServiceMock } from '../mocks/endereco.mock.js';
+import { enderecoMockService } from '../mocks/endereco.service.mock.js';
+import { AtualizaEnderecoDto } from '../usuarioDto/AtualizaEndereco.dto.js';
 
 describe('Teste service endereco', () => {
   let enderecoService: EnderecoService;

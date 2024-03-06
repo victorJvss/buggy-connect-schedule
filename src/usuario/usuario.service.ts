@@ -1,11 +1,11 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import { Usuario } from './usuarioSchema/usuario.schema';
 import mongoose from 'mongoose';
-import { UsuarioDto } from './usuarioDto/Cliente.dto';
-import { UsuarioEntity } from './usuarioEntity/Cliente.entity';
-import { Endereco } from './usuarioSchema/endereco.schema';
-import { EnderecoService } from './endereco.service';
+import { Usuario } from './usuarioSchema/usuario.schema.js';
+import { UsuarioDto } from './usuarioDto/Cliente.dto.js';
+import { UsuarioEntity } from './usuarioEntity/Cliente.entity.js';
+import { Endereco } from './usuarioSchema/endereco.schema.js';
+import { EnderecoService } from './endereco.service.js';
 
 
 @Injectable()

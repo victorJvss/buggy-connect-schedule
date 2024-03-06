@@ -4,8 +4,8 @@ import {
   MaxLength,
   ValidateNested,
 } from 'class-validator';
-import { FotoCnh } from './FotoCnh.dto';
 import { Type } from 'class-transformer';
+import { FotoCnh } from './FotoCnh.dto.js';
 
 export class DadosCnh {
   @IsNotEmpty({ message: 'O campo número da CNH não pode ser vazio!' })

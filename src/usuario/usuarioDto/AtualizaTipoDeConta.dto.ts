@@ -5,10 +5,10 @@ import {
   MaxLength,
   ValidateNested,
 } from 'class-validator';
-import { DadosCnh } from './DadosCnh.dto';
-import { MetodoRecebimento } from './MetodoRecebimento.dto';
-import { TipoDeBuggy } from './TipoDeCarro.dto';
 import { Type } from 'class-transformer';
+import { DadosCnh } from './DadosCnh.dto.js';
+import { MetodoRecebimento } from './MetodoRecebimento.dto.js';
+import { TipoDeBuggy } from './TipoDeCarro.dto.js';
 
 export class AtualizaContaPessoal {
   @IsNotEmpty({ message: 'O campo RG não pode ser vazio!' })

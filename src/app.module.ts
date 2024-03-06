@@ -1,10 +1,10 @@
 /* eslint-disable prettier/prettier */
 import { Module } from '@nestjs/common';
-import { usuarioModule } from './usuario/usuario.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigModule } from '@nestjs/config'
-import { PasseiosModule } from './passeios/passeios.module';
-import { AgendamentoPasseioModule } from './agendamentoPasseio/agendamento.module';
+import { usuarioModule } from './usuario/usuario.module.js';
+import { PasseiosModule } from './passeios/passeios.module.js';
+import { AgendamentoPasseioModule } from './agendamentoPasseio/agendamento.module.js';
 
 @Module({
   imports: [

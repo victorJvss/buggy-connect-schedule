@@ -1,8 +1,8 @@
 import {
   ContaPessoalDto,
   ContaProfissionalDto,
-} from '../usuarioDto/TipoDeConta.dto';
-import { EnderecoEntity } from './EnderecoCliente.entity';
+} from '../usuarioDto/TipoDeConta.dto.js';
+import { EnderecoEntity } from './EnderecoCliente.entity.js';
 
 export class UsuarioEntity {
   nome: string;

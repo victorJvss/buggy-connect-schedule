@@ -3,8 +3,8 @@ import { Model } from 'mongoose';
 import {
   ContaPessoalDto,
   ContaProfissionalDto,
-} from 'src/usuario/usuarioDto/TipoDeConta.dto';
-import { Endereco } from './endereco.schema';
+} from 'src/usuario/usuarioDto/TipoDeConta.dto.js';
+import { Endereco } from './endereco.schema.js';
 
 @Schema({ timestamps: true })
 export class Usuario extends Model {
@@ -21,13 +21,12 @@ export class Usuario extends Model {
   senha: string;
 
   @Prop()
-
   cpf: string;
 
   @Prop(Endereco)
   endereco: Endereco;
 
-  @Prop({ type: Object})
+  @Prop({ type: Object })
   tipoDeConta: ContaPessoalDto | ContaProfissionalDto;
 
   @Prop()

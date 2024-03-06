@@ -1,6 +1,6 @@
-import { DadosCnh } from "./DadosCnh.entity";
-import { MetodoRecebimento } from "./MetodoRecebimento.entity";
-import { TipoDeBuggy } from "./TipoDeCarro.entity";
+import { DadosCnh } from './DadosCnh.entity.js';
+import { MetodoRecebimento } from './MetodoRecebimento.entity.js';
+import { TipoDeBuggy } from './TipoDeCarro.entity.js';
 
 export class ContaPessoal {
   rg: number;

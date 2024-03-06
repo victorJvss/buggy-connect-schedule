@@ -1,8 +1,8 @@
 import { describe, it, expect } from '@jest/globals';
 import { Test, TestingModule } from '@nestjs/testing';
-import { usuarioController } from '../usuario.controller';
-import { usuarioMock, usuarioServiceMock } from '../mocks/usuario.mock';
-import { AtualizaClienteDto } from '../usuarioDto/AtualizaDadosUsuario.tdo';
+import { usuarioController } from '../usuario.controller.js';
+import { usuarioMock, usuarioServiceMock } from '../mocks/usuario.mock.js';
+import { AtualizaClienteDto } from '../usuarioDto/AtualizaDadosUsuario.tdo.js';
 
 describe('Teste do controller usuarios', () => {
   let UsuarioController: usuarioController;

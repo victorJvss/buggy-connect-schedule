@@ -1,4 +1,4 @@
-import { EnderecoEntity } from '../usuarioEntity/EnderecoCliente.entity';
+import { EnderecoEntity } from '../usuarioEntity/EnderecoCliente.entity.js';
 
 describe('Deve testar o entity do endereço', () => {
   const enderecoEntity = new EnderecoEntity();

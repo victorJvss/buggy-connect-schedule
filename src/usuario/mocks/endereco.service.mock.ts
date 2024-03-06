@@ -1,4 +1,4 @@
-import { EnderecoService } from '../endereco.service';
+import { EnderecoService } from '../endereco.service.js';
 
 export const enderecoMockService = {
   estado: 'bahia',

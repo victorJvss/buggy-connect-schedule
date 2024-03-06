@@ -1,8 +1,8 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { UsuarioService } from '../usuario.service';
-import { usuarioServiceMock } from '../mocks/usuario.mock';
-import { usuarioMockService } from '../mocks/usuario.service.mock';
-import { AtualizaClienteDto } from '../usuarioDto/AtualizaDadosUsuario.tdo';
+import { UsuarioService } from '../usuario.service.js';
+import { usuarioServiceMock } from '../mocks/usuario.mock.js';
+import { usuarioMockService } from '../mocks/usuario.service.mock.js';
+import { AtualizaClienteDto } from '../usuarioDto/AtualizaDadosUsuario.tdo.js';
 
 describe('Teste usuário service', () => {
   let serviceUsuario: UsuarioService;

@@ -1,7 +1,7 @@
-import { Body, Controller, Get, Param, Put } from '@nestjs/common';
-import { EnderecoService } from './endereco.service';
-import { AtualizaEnderecoDto } from './usuarioDto/AtualizaEndereco.dto';
 import { ApiTags } from '@nestjs/swagger';
+import { Body, Controller, Get, Param, Put } from '@nestjs/common';
+import { EnderecoService } from './endereco.service.js';
+import { AtualizaEnderecoDto } from './usuarioDto/AtualizaEndereco.dto.js';
 
 @ApiTags('Endereços')
 @Controller('/enderecos')

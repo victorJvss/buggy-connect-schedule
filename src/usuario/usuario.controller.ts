@@ -7,13 +7,12 @@ import {
   Post,
   Put,
 } from '@nestjs/common';
-
-import { UsuarioService } from './usuario.service';
-import { UsuarioDto } from './usuarioDto/Cliente.dto';
-import { UsuarioEntity } from './usuarioEntity/Cliente.entity';
-import { AtualizaClienteDto } from './usuarioDto/AtualizaDadosUsuario.tdo';
 import { ApiOperation, ApiParam, ApiTags } from '@nestjs/swagger';
-import { Usuario } from './usuarioSchema/usuario.schema';
+import { UsuarioService } from './usuario.service.js';
+import { UsuarioDto } from './usuarioDto/Cliente.dto.js';
+import { UsuarioEntity } from './usuarioEntity/Cliente.entity.js';
+import { AtualizaClienteDto } from './usuarioDto/AtualizaDadosUsuario.tdo.js';
+import { Usuario } from './usuarioSchema/usuario.schema.js';
 
 @ApiTags('Usuários')
 @Controller('/usuarios')

@@ -9,7 +9,7 @@ export class UsuarioEntity {
   telefone: number;
   email: string;
   senha: string;
-  cpf: number;
+  cpf: string;
   endereco: EnderecoEntity;
   tipoDeConta: ContaPessoalDto | ContaProfissionalDto;
   dataUltimoAcesso: Date;

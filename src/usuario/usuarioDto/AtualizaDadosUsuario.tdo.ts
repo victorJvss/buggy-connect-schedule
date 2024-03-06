@@ -44,7 +44,7 @@ export class AtualizaClienteDto {
   @MaxLength(14, { message: 'O campo CPF deve ter no máximo 14 números' })
   @MinLength(14, { message: 'O campo CPF deve ter no mínimo 12 números' })
   @IsOptional()
-  cpf: number;
+  cpf: string;
 
   @IsNotEmpty({ message: 'O campo endereço não pode ser vazio!' })
   @ValidateNested()

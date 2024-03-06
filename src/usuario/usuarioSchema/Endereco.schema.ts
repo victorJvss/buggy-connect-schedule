@@ -16,10 +16,10 @@ export class Endereco extends Model {
   rua: string;
 
   @Prop()
-  numeroCasa: number;
+  numeroCasa: string;
 
   @Prop()
-  cep: number;
+  cep: string;
 }
 
 export const EnderecoSchema = SchemaFactory.createForClass(Endereco);

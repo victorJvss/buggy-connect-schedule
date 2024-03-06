@@ -12,7 +12,7 @@ export class Usuario extends Model {
   nome: string;
 
   @Prop()
-  telefone: number;
+  telefone: string;
 
   @Prop()
   email: string;
@@ -21,7 +21,8 @@ export class Usuario extends Model {
   senha: string;
 
   @Prop()
-  cpf: number;
+
+  cpf: string;
 
   @Prop(Endereco)
   endereco: Endereco;

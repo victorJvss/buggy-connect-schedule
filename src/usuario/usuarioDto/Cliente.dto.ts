@@ -11,7 +11,7 @@ import { ContaPessoalDto, ContaProfissionalDto } from './TipoDeConta.dto';
 import { Type } from 'class-transformer';
 import { emailValidado } from '../validador/email.validator';
 import { cpfValidado } from '../validador/cpf.validator';
-import { ApiBody, ApiDefaultResponse, ApiProperty } from '@nestjs/swagger';
+import { ApiProperty } from '@nestjs/swagger';
 
 export class UsuarioDto {
   @ApiProperty()
@@ -42,9 +42,9 @@ export class UsuarioDto {
   @ApiProperty()
   @IsNotEmpty({ message: 'O campo CPF não pode ser vazio!' })
   @MaxLength(14, { message: 'O campo CPF deve ter no máximo 14 números' })
-  @MinLength(14, { message: 'O campo CPF deve ter no mínimo 12 números' })
+  @MinLength(11, { message: 'O campo CPF deve ter no mínimo 11 números' })
   @cpfValidado({ message: 'CPF já cadastrado' })
-  cpf: number;
+  cpf: string;
 
   @ApiProperty()
   @IsNotEmpty({ message: 'O campo endereço não pode ser vazio!' })

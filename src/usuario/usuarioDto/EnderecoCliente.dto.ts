@@ -19,7 +19,7 @@ export class EnderecoDto {
 
   @ApiProperty()
   @IsNotEmpty({ message: 'O campo rua não pode ser vazio!' })
-  @MaxLength(15, { message: 'O campo deve ter no máximo 15 caracteres' })
+  @MaxLength(50, { message: 'O campo deve ter no máximo 15 caracteres' })
   rua: string;
 
   @ApiProperty()

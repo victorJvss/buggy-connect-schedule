@@ -24,10 +24,10 @@ export class EnderecoDto {
 
   @ApiProperty()
   @IsNotEmpty({ message: 'O campo número da casa não pode ser vazio!' })
-  numeroCasa: number;
+  numeroCasa: string;
 
   @ApiProperty()
   @IsNotEmpty({ message: 'O campo cep não pode ser vazio!' })
   @MaxLength(9, { message: 'O campo CEP deve ter no máximo 9 caracteres' })
-  cep: number;
+  cep: string;
 }

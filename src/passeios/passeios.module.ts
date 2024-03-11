@@ -1,8 +1,11 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
-import { PasseiosService } from './passeios.service.js';
-import { PasseiosController } from './passseios.controller.js';
-import { Passeios, passseiosSchema } from './passeiosSchema/passeios.schema.js';
+import { PasseiosService } from '../../src/passeios/passeios.service';
+import { PasseiosController } from '../../src/passeios/passseios.controller';
+import {
+  Passeios,
+  passseiosSchema,
+} from '../../src/passeios/passeiosSchema/passeios.schema';
 
 @Module({
   imports: [

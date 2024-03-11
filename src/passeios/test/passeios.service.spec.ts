@@ -1,10 +1,10 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { PasseiosService } from '../passeios.service.js';
+import { PasseiosService } from '../../../src/passeios/passeios.service';
 import {
   mockPasseio,
   mockPasseioService,
-} from '../mocks/passeio.service.mock.js';
-import { AtualizaPasseioDto } from '../passeiosDto/atualizaPasseios.dto.js';
+} from '../../../src/passeios/mocks/passeio.service.mock';
+import { AtualizaPasseioDto } from '../../../src/passeios/passeiosDto/atualizaPasseios.dto';
 
 describe('Teste passeio service', () => {
   let passeioService: PasseiosService;

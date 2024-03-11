@@ -3,6 +3,6 @@ export class EnderecoEntity {
   cidade: string;
   bairro: string;
   rua: string;
-  numeroCasa: number;
-  cep: number;
+  numeroCasa: string;
+  cep: string;
 }

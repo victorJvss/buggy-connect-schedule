@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import mongoose from 'mongoose';
-import { Agendamento } from './agendamentoSchema/agendamento.schema.js';
-import { AtualizaAgendamentoPasseioDto } from './agendamentoDto/atualizaPasseioAgendado.dto.js';
+import { Agendamento } from '../../src/agendamentoPasseio/agendamentoSchema/agendamento.schema';
+import { AtualizaAgendamentoPasseioDto } from '../../src/agendamentoPasseio/agendamentoDto/atualizaPasseioAgendado.dto';
 
 @Injectable()
 export class AgendamentoPasseioService {

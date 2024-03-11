@@ -5,7 +5,7 @@ import {
   registerDecorator,
 } from 'class-validator';
 import { Injectable } from '@nestjs/common';
-import { UsuarioService } from '../usuario.service.js';
+import { UsuarioService } from '../../../src/usuario/usuario.service';
 
 @Injectable()
 @ValidatorConstraint({ async: true })

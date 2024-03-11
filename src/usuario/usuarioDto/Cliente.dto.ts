@@ -8,10 +8,13 @@ import {
 } from 'class-validator';
 import { Type } from 'class-transformer';
 import { ApiProperty } from '@nestjs/swagger';
-import { EnderecoDto } from './EnderecoCliente.dto.js';
-import { ContaPessoalDto, ContaProfissionalDto } from './TipoDeConta.dto.js';
-import { emailValidado } from '../validador/email.validator.js';
-import { cpfValidado } from '../validador/cpf.validator.js';
+import { EnderecoDto } from '../../../src/usuario/usuarioDto/EnderecoCliente.dto';
+import {
+  ContaPessoalDto,
+  ContaProfissionalDto,
+} from '../../../src/usuario/usuarioDto/TipoDeConta.dto';
+import { emailValidado } from '../../../src/usuario/validador/email.validator';
+import { cpfValidado } from '../../../src/usuario/validador/cpf.validator';
 
 export class UsuarioDto {
   @ApiProperty()
@@ -58,7 +61,6 @@ export class UsuarioDto {
       dataDeNascimento: 'string',
     },
   })
-
   @IsNotEmpty({ message: 'O campo tipo de conta não pode ser vazio!' })
   @ValidateNested()
   @Type(() => ContaPessoalDto || ContaProfissionalDto)

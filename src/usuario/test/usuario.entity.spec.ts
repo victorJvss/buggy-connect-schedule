@@ -1,7 +1,7 @@
-import { UsuarioEntity } from '../usuarioEntity/Cliente.entity.js';
-import { DadosCnh } from '../usuarioEntity/DadosCnh.entity.js';
-import { MetodoRecebimento } from '../usuarioEntity/MetodoRecebimento.entity.js';
-import { TipoDeBuggy } from '../usuarioEntity/TipoDeCarro.entity.js';
+import { UsuarioEntity } from '../../../src/usuario/usuarioEntity/Cliente.entity';
+import { DadosCnh } from '../../../src/usuario/usuarioEntity/DadosCnh.entity';
+import { MetodoRecebimento } from '../../../src/usuario/usuarioEntity/MetodoRecebimento.entity';
+import { TipoDeBuggy } from '../../../src/usuario/usuarioEntity/TipoDeCarro.entity';
 import {
   ContaPessoal,
   ContaProfissional,

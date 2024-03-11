@@ -5,9 +5,9 @@ import {
   ValidateNested,
 } from 'class-validator';
 import { Type } from 'class-transformer';
-import { DadosCnh } from './DadosCnh.dto.js';
-import { MetodoRecebimento } from './MetodoRecebimento.dto.js';
-import { TipoDeBuggy } from './TipoDeCarro.dto.js';
+import { DadosCnh } from '../../../src/usuario/usuarioDto/DadosCnh.dto';
+import { MetodoRecebimento } from '../../../src/usuario/usuarioDto/MetodoRecebimento.dto';
+import { TipoDeBuggy } from '../../../src/usuario/usuarioDto/TipoDeCarro.dto';
 
 export class ContaPessoalDto {
   @IsNotEmpty({ message: 'O campo RG não pode ser vazio!' })

@@ -1,4 +1,4 @@
-import { UsuarioService } from '../usuario.service.js';
+import { UsuarioService } from '../../../src/usuario/usuario.service';
 
 export const usuarioMock = {
   id: '1',
@@ -6,14 +6,14 @@ export const usuarioMock = {
   telefone: 444484848482,
   email: 'e3633523@email.com',
   senha: 'VOLTSJV!1233e4',
-  cpf: 98175144651414,
+  cpf: '98175144651414',
   endereco: {
     estado: 'bahia',
     cidade: 'alagoinhas',
     bairro: 'catu',
     rua: 'cacau',
-    numeroCasa: 190,
-    cep: 151515151,
+    numeroCasa: '190',
+    cep: '151515151',
     id: '1',
   },
   tipoDeConta: {

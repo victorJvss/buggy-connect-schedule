@@ -1,8 +1,8 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { EnderecoService } from '../endereco.service.js';
-import { enderecoServiceMock } from '../mocks/endereco.mock.js';
-import { enderecoMockService } from '../mocks/endereco.service.mock.js';
-import { AtualizaEnderecoDto } from '../usuarioDto/AtualizaEndereco.dto.js';
+import { EnderecoService } from '../../../src/usuario/endereco.service';
+import { enderecoServiceMock } from '../../../src/usuario/mocks/endereco.mock';
+import { enderecoMockService } from '../../../src/usuario/mocks/endereco.service.mock';
+import { AtualizaEnderecoDto } from '../../../src/usuario/usuarioDto/AtualizaEndereco.dto';
 
 describe('Teste service endereco', () => {
   let enderecoService: EnderecoService;
@@ -43,8 +43,8 @@ describe('Teste service endereco', () => {
       cidade: 'alagoinhas',
       bairro: 'catu',
       rua: 'cacau',
-      numeroCasa: 190,
-      cep: 151515151,
+      numeroCasa: '190',
+      cep: '151515151',
     };
 
     const id = '44';

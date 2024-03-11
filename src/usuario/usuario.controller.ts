@@ -8,11 +8,11 @@ import {
   Put,
 } from '@nestjs/common';
 import { ApiOperation, ApiParam, ApiTags } from '@nestjs/swagger';
-import { UsuarioService } from './usuario.service.js';
-import { UsuarioDto } from './usuarioDto/Cliente.dto.js';
-import { UsuarioEntity } from './usuarioEntity/Cliente.entity.js';
-import { AtualizaClienteDto } from './usuarioDto/AtualizaDadosUsuario.tdo.js';
-import { Usuario } from './usuarioSchema/usuario.schema.js';
+import { UsuarioService } from '../../src/usuario/usuario.service';
+import { UsuarioDto } from '../../src/usuario/usuarioDto/Cliente.dto';
+import { UsuarioEntity } from '../../src/usuario/usuarioEntity/Cliente.entity';
+import { AtualizaClienteDto } from '../../src/usuario/usuarioDto/AtualizaDadosUsuario.tdo';
+import { Usuario } from '../../src/usuario/usuarioSchema/usuario.schema';
 
 @ApiTags('Usuários')
 @Controller('/usuarios')
@@ -26,6 +26,7 @@ export class usuarioController {
     usuarioEntity.nome = dadosEnviado.nome;
     usuarioEntity.telefone = dadosEnviado.telefone;
     usuarioEntity.email = dadosEnviado.email;
+    
     usuarioEntity.senha = dadosEnviado.senha;
     usuarioEntity.cpf = dadosEnviado.cpf;
     usuarioEntity.endereco = dadosEnviado.endereco;

@@ -8,9 +8,9 @@ import {
   Put,
 } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
-import { PasseiosService } from './passeios.service.js';
-import { PasseiosDto } from './passeiosDto/passeios.dto.js';
-import { AtualizaPasseioDto } from './passeiosDto/atualizaPasseios.dto.js';
+import { PasseiosService } from '../../src/passeios/./passeios.service';
+import { PasseiosDto } from '../../src/passeios/./passeiosDto/passeios.dto';
+import { AtualizaPasseioDto } from '../../src/passeios/./passeiosDto/atualizaPasseios.dto';
 
 @ApiTags('Passeios')
 @Controller('passeios')

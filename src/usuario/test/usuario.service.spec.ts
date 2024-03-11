@@ -1,8 +1,8 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { UsuarioService } from '../usuario.service.js';
-import { usuarioServiceMock } from '../mocks/usuario.mock.js';
-import { usuarioMockService } from '../mocks/usuario.service.mock.js';
-import { AtualizaClienteDto } from '../usuarioDto/AtualizaDadosUsuario.tdo.js';
+import { UsuarioService } from '../../../src/usuario/usuario.service';
+import { usuarioServiceMock } from '../../../src/usuario/mocks/usuario.mock';
+import { usuarioMockService } from '../../../src/usuario/mocks/usuario.service.mock';
+import { AtualizaClienteDto } from '../../../src/usuario/usuarioDto/AtualizaDadosUsuario.tdo';
 
 describe('Teste usuário service', () => {
   let serviceUsuario: UsuarioService;
@@ -52,14 +52,14 @@ describe('Teste usuário service', () => {
       telefone: 444484848482,
       email: 'e3633523@email.com',
       senha: 'VOLTSJV!1233e4',
-      cpf: 98175144651414,
+      cpf: '98175144651414',
       endereco: {
         estado: 'bahia',
         cidade: 'alagoinhas',
         bairro: 'catu',
         rua: 'cacau',
-        numeroCasa: 190,
-        cep: 151515151,
+        numeroCasa: '190',
+        cep: '151515151',
       },
       tipoDeConta: {
         rg: 15151515151,

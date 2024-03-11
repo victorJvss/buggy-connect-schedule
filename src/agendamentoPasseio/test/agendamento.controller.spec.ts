@@ -1,10 +1,10 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { AgendamentoPasseioController } from '../agendamento.controller.js';
+import { AgendamentoPasseioController } from '../../../src/agendamentoPasseio/agendamento.controller';
 import {
   agendamentoMock,
   agendamentoMockService,
-} from '../mocks/agendamento.service.mock.js';
-import { AtualizaAgendamentoPasseioDto } from '../agendamentoDto/atualizaPasseioAgendado.dto.js';
+} from '../../../src/agendamentoPasseio/mocks/agendamento.service.mock';
+import { AtualizaAgendamentoPasseioDto } from '../../../src/agendamentoPasseio/agendamentoDto/atualizaPasseioAgendado.dto';
 
 describe('Deve testar o controller do agendamento de passeio', () => {
   let agendamentoController: AgendamentoPasseioController;

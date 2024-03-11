@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import mongoose from 'mongoose';
-import { Passeios } from './passeiosSchema/passeios.schema.js';
-import { PasseiosDto } from './passeiosDto/passeios.dto.js';
+import { Passeios } from '../../src/passeios/passeiosSchema/passeios.schema';
+import { PasseiosDto } from '../../src/passeios/passeiosDto/passeios.dto';
 
 @Injectable()
 export class PasseiosService {

@@ -1,4 +1,4 @@
-import { FotoCnh } from './FotoCnh.entity.js';
+import { FotoCnh } from '../../../src/usuario/usuarioEntity/FotoCnh.entity';
 
 export class DadosCnh {
   numeroCnh: number;

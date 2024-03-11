@@ -19,9 +19,9 @@ export class AtualizaEnderecoDto {
 
   @IsNotEmpty({ message: 'O campo número da casa não pode ser vazio!' })
   @IsOptional()
-  numeroCasa: number;
+  numeroCasa: string;
 
   @MaxLength(9, { message: 'O campo CEP deve ter no máximo 9 caracteres' })
   @IsOptional()
-  cep: number;
+  cep: string;
 }

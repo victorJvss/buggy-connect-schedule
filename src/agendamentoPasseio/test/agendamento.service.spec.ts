@@ -1,10 +1,10 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { AgendamentoPasseioService } from '../agendamento.service.js';
+import { AgendamentoPasseioService } from '../../../src/agendamentoPasseio/agendamento.service';
 import {
   agendamentoMock,
   agendamentoMockService,
-} from '../mocks/agendamento.service.mock.js';
-import { AtualizaAgendamentoPasseioDto } from '../agendamentoDto/atualizaPasseioAgendado.dto.js';
+} from '../../../src/agendamentoPasseio/mocks/agendamento.service.mock'
+import { AtualizaAgendamentoPasseioDto } from '../../../src/agendamentoPasseio/agendamentoDto/atualizaPasseioAgendado.dto';
 
 describe('Teste do agendamento service', () => {
   let agendamentoService: AgendamentoPasseioService;

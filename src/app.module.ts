@@ -2,9 +2,9 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigModule } from '@nestjs/config'
-import { usuarioModule } from './usuario/usuario.module.js';
-import { PasseiosModule } from './passeios/passeios.module.js';
-import { AgendamentoPasseioModule } from './agendamentoPasseio/agendamento.module.js';
+import { usuarioModule } from '../src/usuario/usuario.module';
+import { PasseiosModule } from '../src/passeios/passeios.module';
+import { AgendamentoPasseioModule } from '../src/agendamentoPasseio/agendamento.module';
 
 @Module({
   imports: [

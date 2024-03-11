@@ -1,4 +1,4 @@
-import { PasseiosService } from '../passeios.service.js';
+import { PasseiosService } from '../../../src/passeios/passeios.service';
 
 export const mockPasseio = {
   id: '1',

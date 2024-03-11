@@ -1,12 +1,12 @@
-import { EnderecoService } from '../endereco.service.js';
+import { EnderecoService } from '../../../src/usuario/endereco.service';
 
 export const enderecoMockService = {
   estado: 'bahia',
   cidade: 'alagoinhas',
   bairro: 'catu',
   rua: 'cacau',
-  numeroCasa: 190,
-  cep: 151515151,
+  numeroCasa: '190',
+  cep: '151515151',
   id: '1',
 };
 

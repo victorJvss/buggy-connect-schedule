@@ -9,11 +9,11 @@ import {
 } from 'class-validator';
 import { Type } from 'class-transformer';
 
-import { AtualizaEnderecoDto } from './AtualizaEndereco.dto.js';
+import { AtualizaEnderecoDto } from '../../../src/usuario/usuarioDto/AtualizaEndereco.dto';
 import {
   AtualizaContaPessoal,
   AtualizaContaProfissional,
-} from './AtualizaTipoDeConta.dto.js';
+} from '../../../src/usuario/usuarioDto/AtualizaTipoDeConta.dto';
 
 export class AtualizaClienteDto {
   @IsNotEmpty({ message: 'O campo nome não pode ser vazio!' })

@@ -1,7 +1,7 @@
 import { ApiTags } from '@nestjs/swagger';
 import { Body, Controller, Get, Param, Put } from '@nestjs/common';
-import { EnderecoService } from './endereco.service.js';
-import { AtualizaEnderecoDto } from './usuarioDto/AtualizaEndereco.dto.js';
+import { EnderecoService } from '../../src/usuario/endereco.service';
+import { AtualizaEnderecoDto } from '../../src/usuario/usuarioDto/AtualizaEndereco.dto';
 
 @ApiTags('Endereços')
 @Controller('/enderecos')

@@ -1,9 +1,9 @@
 import { InjectModel } from '@nestjs/mongoose';
 import mongoose from 'mongoose';
 import { Injectable } from '@nestjs/common';
-import { Endereco } from './usuarioSchema/endereco.schema.js';
-import { EnderecoDto } from './usuarioDto/EnderecoCliente.dto.js';
-import { Usuario } from './usuarioSchema/usuario.schema.js';
+import { Endereco } from '../../src/usuario/usuarioSchema/endereco.schema';
+import { EnderecoDto } from '../../src/usuario/usuarioDto/EnderecoCliente.dto';
+import { Usuario } from '../../src/usuario/usuarioSchema/usuario.schema';
 
 @Injectable()
 export class EnderecoService {
@@ -14,7 +14,7 @@ export class EnderecoService {
     private usuario: mongoose.Model<Usuario>,
   ) {}
 
-  async pegaTodosOsEnderecos() {
+  async pegaTodosOsEnderecos(): Promise<Endereco[]> {
     const enderecos = await this.endereco.find();
     return enderecos;
   }

@@ -1,8 +1,11 @@
 import { describe, it, expect } from '@jest/globals';
 import { Test, TestingModule } from '@nestjs/testing';
-import { usuarioController } from '../usuario.controller.js';
-import { usuarioMock, usuarioServiceMock } from '../mocks/usuario.mock.js';
-import { AtualizaClienteDto } from '../usuarioDto/AtualizaDadosUsuario.tdo.js';
+import { usuarioController } from '../../../src/usuario/usuario.controller';
+import {
+  usuarioMock,
+  usuarioServiceMock,
+} from '../../../src/usuario/mocks/usuario.mock';
+import { AtualizaClienteDto } from '../../../src/usuario/usuarioDto/AtualizaDadosUsuario.tdo';
 
 describe('Teste do controller usuarios', () => {
   let UsuarioController: usuarioController;
@@ -56,14 +59,14 @@ describe('Teste do controller usuarios', () => {
       telefone: 444484848482,
       email: 'e3633523@email.com',
       senha: 'VOLTSJV!1233e4',
-      cpf: 98175144651414,
+      cpf: '98175144651414',
       endereco: {
         estado: 'bahia',
         cidade: 'alagoinhas',
         bairro: 'catu',
         rua: 'cacau',
-        numeroCasa: 190,
-        cep: 151515151,
+        numeroCasa: '190',
+        cep: '151515151',
       },
       tipoDeConta: {
         rg: 15151515151,

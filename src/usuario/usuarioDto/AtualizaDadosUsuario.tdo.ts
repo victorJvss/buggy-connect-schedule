@@ -24,7 +24,7 @@ export class AtualizaClienteDto {
   @IsNotEmpty({ message: 'O campo telefone não pode ser vazio!' })
   @MaxLength(12, { message: 'O campo telefone deve ter no máximo 12 números' })
   @IsOptional()
-  telefone: number;
+  telefone: string;
 
   @IsNotEmpty({ message: 'O campo email não pode ser vazio!' })
   @IsEmail()

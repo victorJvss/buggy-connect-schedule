@@ -2,6 +2,7 @@ import {
   IsArray,
   IsNotEmpty,
   MaxLength,
+  MinLength,
   ValidateNested,
 } from 'class-validator';
 import { Type } from 'class-transformer';
@@ -11,8 +12,9 @@ import { TipoDeBuggy } from '../../../src/usuario/usuarioDto/TipoDeCarro.dto';
 
 export class ContaPessoalDto {
   @IsNotEmpty({ message: 'O campo RG não pode ser vazio!' })
-  @MaxLength(11)
-  rg: number;
+  @MaxLength(8, { message: 'O campo Rg deve ter no máximo 8 caracteres' })
+  @MinLength(8, { message: 'O campo Rg deve ter no mínimo 8 caracteres' })
+  rg: string;
 
   // @IsOptional()
   // sexo: string;

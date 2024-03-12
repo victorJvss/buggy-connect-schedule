@@ -6,7 +6,7 @@ import { EnderecoEntity } from '../../../src/usuario/usuarioEntity/EnderecoClien
 
 export class UsuarioEntity {
   nome: string;
-  telefone: number;
+  telefone: string;
   email: string;
   senha: string;
   cpf: string;

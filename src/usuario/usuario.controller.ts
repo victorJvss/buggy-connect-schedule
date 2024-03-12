@@ -26,7 +26,6 @@ export class usuarioController {
     usuarioEntity.nome = dadosEnviado.nome;
     usuarioEntity.telefone = dadosEnviado.telefone;
     usuarioEntity.email = dadosEnviado.email;
-    
     usuarioEntity.senha = dadosEnviado.senha;
     usuarioEntity.cpf = dadosEnviado.cpf;
     usuarioEntity.endereco = dadosEnviado.endereco;

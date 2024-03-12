@@ -14,7 +14,7 @@ export class AtualizaContaPessoal {
   @IsNotEmpty({ message: 'O campo RG não pode ser vazio!' })
   @MaxLength(11)
   @IsOptional()
-  rg: number;
+  rg: string;
 
   @IsOptional()
   sexo: string;

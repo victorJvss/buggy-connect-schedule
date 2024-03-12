@@ -3,7 +3,7 @@ import { UsuarioService } from '../../../src/usuario/usuario.service';
 export const usuarioMockService = {
   id: '1',
   nome: 'cacau',
-  telefone: 444484848482,
+  telefone: '444484848482',
   email: 'e3633523@email.com',
   senha: 'VOLTSJV!1233e4',
   cpf: '98175144651414',
@@ -17,7 +17,7 @@ export const usuarioMockService = {
     id: '1',
   },
   tipoDeConta: {
-    rg: 15151515151,
+    rg: '15151515151',
     dataDeNascimento: '01022002',
   },
 };

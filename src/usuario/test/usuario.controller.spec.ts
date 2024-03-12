@@ -56,7 +56,7 @@ describe('Teste do controller usuarios', () => {
     const result = await UsuarioController.enviaUsuario(novoUsuario);
     expect(result).toStrictEqual({
       nome: 'cacau',
-      telefone: 444484848482,
+      telefone: '444484848482',
       email: 'e3633523@email.com',
       senha: 'VOLTSJV!1233e4',
       cpf: '98175144651414',
@@ -69,7 +69,7 @@ describe('Teste do controller usuarios', () => {
         cep: '151515151',
       },
       tipoDeConta: {
-        rg: 15151515151,
+        rg: '15151515151',
         dataDeNascimento: '01022002',
       },
     });

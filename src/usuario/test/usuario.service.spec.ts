@@ -49,7 +49,7 @@ describe('Teste usuário service', () => {
   it('Deve criar um usuário', async () => {
     const usuario = {
       nome: 'cacau',
-      telefone: 444484848482,
+      telefone: '444484848482',
       email: 'e3633523@email.com',
       senha: 'VOLTSJV!1233e4',
       cpf: '98175144651414',
@@ -62,7 +62,7 @@ describe('Teste usuário service', () => {
         cep: '151515151',
       },
       tipoDeConta: {
-        rg: 15151515151,
+        rg: '15151515151',
         dataDeNascimento: '01022002',
       },
       dataUltimoAcesso: new Date(),

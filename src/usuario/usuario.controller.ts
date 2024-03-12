@@ -61,8 +61,12 @@ export class usuarioController {
   async pegaUsuarioPorParametro(
     @Param('id') id: string,
   ): Promise<Usuario | object> {
-    const pegaUsuario = await this.usuarioService.pegaUsuarioPorParametro(id);
-    return pegaUsuario;
+    try {
+      const pegaUsuario = await this.usuarioService.pegaUsuarioPorParametro(id);
+      return pegaUsuario;
+    } catch {
+      return;
+    }
   }
 
   @Put('/:id?/:email?/:cpf?')
@@ -79,12 +83,16 @@ export class usuarioController {
     @Param('id') id: string,
     @Body() dadosUsuario: AtualizaClienteDto,
   ) {
-    const atualizaUsuario = await this.usuarioService.atualizaUsuario(
-      id,
-      dadosUsuario,
-    );
+    try {
+      const atualizaUsuario = await this.usuarioService.atualizaUsuario(
+        id,
+        dadosUsuario,
+      );
 
-    return atualizaUsuario;
+      return atualizaUsuario;
+    } catch {
+      return;
+    }
   }
 
   @Delete('/:id?/:email?/:cpf?')
@@ -98,7 +106,11 @@ export class usuarioController {
       'Insira o id cpf ou e-mail no input a baixo para deletar o usuário desejado',
   })
   async removeUsuario(@Param('id') id: string): Promise<object> {
-    const usuarioDeletado = await this.usuarioService.deletaUsuario(id);
-    return usuarioDeletado;
+    try {
+      const usuarioDeletado = await this.usuarioService.deletaUsuario(id);
+      return usuarioDeletado;
+    } catch {
+      return;
+    }
   }
 }

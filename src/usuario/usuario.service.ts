@@ -7,7 +7,6 @@ import { UsuarioEntity } from '../../src/usuario/usuarioEntity/Cliente.entity';
 import { Endereco } from '../../src/usuario/usuarioSchema/endereco.schema';
 import { EnderecoService } from '../../src/usuario/endereco.service';
 
-
 @Injectable()
 export class UsuarioService {
   constructor(
@@ -25,8 +24,12 @@ export class UsuarioService {
   }
 
   async pegaUsuarios(): Promise<Usuario[]> {
-    const usuarios: Usuario[] = await this.usuario.find();
-    return usuarios;
+    try {
+      const usuarios: Usuario[] = await this.usuario.find();
+      return usuarios;
+    } catch {
+      return;
+    }
   }
 
   async pegaUsuarioPorParametro(

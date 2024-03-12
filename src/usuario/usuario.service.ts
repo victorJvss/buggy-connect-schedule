@@ -144,4 +144,15 @@ export class UsuarioService {
 
     return regexCpf.test(dado);
   }
+
+  async regexSenha(possivelSenha: string): Promise<boolean> {
+    const regexSenha =
+      /^(?=.*[a-zç])(?=.*[A-ZÇ])(?=.*\d)(?=.*[!@#$%^&*()-+])[A-Za-zçÇ\d!@#$%^&*()-+]{8,}$/;
+
+    if (regexSenha.test(possivelSenha)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }

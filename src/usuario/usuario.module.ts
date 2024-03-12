@@ -14,6 +14,7 @@ import {
 } from '../../src/usuario/usuarioSchema/endereco.schema';
 import { EnderecoService } from '../../src/usuario/endereco.service';
 import { enderecoController } from '../../src/usuario/endereco.controller';
+import { validaSenha } from './validador/senha.validator';
 
 @Module({
   imports: [
@@ -23,6 +24,12 @@ import { enderecoController } from '../../src/usuario/endereco.controller';
     ]),
   ],
   controllers: [usuarioController, enderecoController],
-  providers: [UsuarioService, EnderecoService, ValidaEmail, ValidaCpf],
+  providers: [
+    UsuarioService,
+    EnderecoService,
+    ValidaEmail,
+    ValidaCpf,
+    validaSenha,
+  ],
 })
 export class usuarioModule {}

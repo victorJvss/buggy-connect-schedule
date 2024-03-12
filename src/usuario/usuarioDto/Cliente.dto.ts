@@ -1,7 +1,6 @@
 import {
   IsEmail,
   IsNotEmpty,
-  IsStrongPassword,
   MaxLength,
   MinLength,
   ValidateNested,
@@ -15,6 +14,7 @@ import {
 } from '../../../src/usuario/usuarioDto/TipoDeConta.dto';
 import { emailValidado } from '../../../src/usuario/validador/email.validator';
 import { cpfValidado } from '../../../src/usuario/validador/cpf.validator';
+import { senhaValidada } from '../validador/senha.validator';
 
 export class UsuarioDto {
   @ApiProperty({ example: 'Marcos santos oliveira' })
@@ -38,7 +38,7 @@ export class UsuarioDto {
   @ApiProperty({ example: 'buGGy123@' })
   @IsNotEmpty({ message: 'O campo senha não pode ser vazio!' })
   @MinLength(7, { message: 'O campo senha deve ter no mínimo 7 caracteres' })
-  @IsStrongPassword(undefined, {
+  @senhaValidada({
     message:
       'A sua senha deve ter no mínimo uma letra maiúscula, uma letra minúscula, um número e um caracter especial: @,!,#,$,%...',
   })

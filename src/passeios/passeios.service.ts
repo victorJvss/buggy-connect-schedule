@@ -11,8 +11,12 @@ export class PasseiosService {
     private passeios: mongoose.Model<Passeios>,
   ) {}
 
-  async pegaTodosOsPasseios() {
-    return this.passeios.find();
+  async pegaTodosOsPasseios(): Promise<Passeios[] | string> {
+    try {
+      return this.passeios.find();
+    } catch {
+      return 'Não foi possível retorna todos os passeios';
+    }
   }
 
   async pegaPasseioPeloId(id: string) {
@@ -29,11 +33,11 @@ export class PasseiosService {
       id,
       atualizacaoPasseio,
     );
-    return atualizaPasseio
+    return atualizaPasseio;
   }
 
-  async deletaPasseio(id: string){
-    const passeioDeletado = await this.passeios.findByIdAndDelete(id)
+  async deletaPasseio(id: string) {
+    const passeioDeletado = await this.passeios.findByIdAndDelete(id);
     return passeioDeletado;
   }
 }

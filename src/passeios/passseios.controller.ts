@@ -11,27 +11,40 @@ import { ApiTags } from '@nestjs/swagger';
 import { PasseiosService } from '../../src/passeios/./passeios.service';
 import { PasseiosDto } from '../../src/passeios/./passeiosDto/passeios.dto';
 import { AtualizaPasseioDto } from '../../src/passeios/./passeiosDto/atualizaPasseios.dto';
+import { Passeios } from './passeiosSchema/passeios.schema';
 
 @ApiTags('Passeios')
 @Controller('passeios')
 export class PasseiosController {
   constructor(private passeios: PasseiosService) {}
   @Get()
-  async pegaTodosOsPasseios() {
-    const todosOsPasseios = await this.passeios.pegaTodosOsPasseios();
-    return todosOsPasseios;
+  async pegaTodosOsPasseios(): Promise<Passeios[] | string> {
+    try {
+      const todosOsPasseios = await this.passeios.pegaTodosOsPasseios();
+      return todosOsPasseios;
+    } catch {
+      return 'Não foi possível retorna todos os passeios';
+    }
   }
 
   @Get('/:id')
   async pegaPasseioPeloId(@Param('id') id: string) {
-    const pegaPasseioPeloId = await this.passeios.pegaPasseioPeloId(id);
-    return pegaPasseioPeloId;
+    try {
+      const pegaPasseioPeloId = await this.passeios.pegaPasseioPeloId(id);
+      return pegaPasseioPeloId;
+    } catch {
+      return;
+    }
   }
 
   @Post()
   async adicionaPasseio(@Body() DadosPasseio: PasseiosDto) {
-    const salvaPasseios = await this.passeios.adicionaPasseios(DadosPasseio);
-    return salvaPasseios;
+    try {
+      const salvaPasseios = await this.passeios.adicionaPasseios(DadosPasseio);
+      return salvaPasseios;
+    } catch {
+      return;
+    }
   }
 
   @Put('/:id')
@@ -39,17 +52,24 @@ export class PasseiosController {
     @Param('id') id: string,
     @Body() dadosAtualizadosPasseio: AtualizaPasseioDto,
   ) {
-    const atualizaPasseio = await this.passeios.atualizaPasseios(
-      id,
-      dadosAtualizadosPasseio,
-    );
-    return atualizaPasseio;
+    try {
+      const atualizaPasseio = await this.passeios.atualizaPasseios(
+        id,
+        dadosAtualizadosPasseio,
+      );
+      return atualizaPasseio;
+    } catch {
+      return;
+    }
   }
 
   @Delete('/:id')
   async deletaPasseio(@Param('id') id: string) {
-    const deletandoPasseio = await this.passeios.deletaPasseio(id)
-    return deletandoPasseio;
+    try {
+      const deletandoPasseio = await this.passeios.deletaPasseio(id);
+      return deletandoPasseio;
+    } catch {
+      return;
+    }
   }
 }
- 

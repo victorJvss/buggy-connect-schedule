@@ -38,12 +38,19 @@ export class PasseiosService {
     }
   }
 
-  async atualizaPasseios(id: string, atualizacaoPasseio: PasseiosDto) {
-    const atualizaPasseio = await this.passeios.findByIdAndUpdate(
-      id,
-      atualizacaoPasseio,
-    );
-    return atualizaPasseio;
+  async atualizaPasseios(
+    id: string,
+    atualizacaoPasseio: PasseiosDto,
+  ): Promise<Passeios | string> {
+    try {
+      const atualizaPasseio = await this.passeios.findByIdAndUpdate(
+        id,
+        atualizacaoPasseio,
+      );
+      return atualizaPasseio;
+    } catch {
+      return 'Não foi possível atualizar o passeio'
+    }
   }
 
   async deletaPasseio(id: string) {

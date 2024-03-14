@@ -53,7 +53,7 @@ export class PasseiosController {
   async atualizaPasseio(
     @Param('id') id: string,
     @Body() dadosAtualizadosPasseio: AtualizaPasseioDto,
-  ) {
+  ): Promise<Passeios | string> {
     try {
       const atualizaPasseio = await this.passeios.atualizaPasseios(
         id,
@@ -61,7 +61,7 @@ export class PasseiosController {
       );
       return atualizaPasseio;
     } catch {
-      return;
+      return 'Houve um problema, não foi possível atualizar o passeio' ;
     }
   }
 

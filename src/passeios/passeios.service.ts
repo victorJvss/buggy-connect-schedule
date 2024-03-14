@@ -27,9 +27,15 @@ export class PasseiosService {
     }
   }
 
-  async adicionaPasseios(dadosPasseio: PasseiosDto) {
-    const salvaPasseios = await this.passeios.create(dadosPasseio);
-    return salvaPasseios;
+  async adicionaPasseios(
+    dadosPasseio: PasseiosDto,
+  ): Promise<Passeios | string> {
+    try {
+      const salvaPasseios = await this.passeios.create(dadosPasseio);
+      return salvaPasseios;
+    } catch {
+      return 'Não foi possível criar o passeio';
+    }
   }
 
   async atualizaPasseios(id: string, atualizacaoPasseio: PasseiosDto) {

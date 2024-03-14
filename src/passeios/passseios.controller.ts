@@ -25,7 +25,7 @@ export class PasseiosController {
     } catch {
       return 'Houve um problema, não foi possível retorna todos os passeios';
     }
-  }  
+  }
 
   @Get('/:id')
   async pegaPasseioPeloId(@Param('id') id: string): Promise<Passeios | string> {
@@ -38,12 +38,14 @@ export class PasseiosController {
   }
 
   @Post()
-  async adicionaPasseio(@Body() DadosPasseio: PasseiosDto) {
+  async adicionaPasseio(
+    @Body() DadosPasseio: PasseiosDto,
+  ): Promise<Passeios | string> {
     try {
       const salvaPasseios = await this.passeios.adicionaPasseios(DadosPasseio);
       return salvaPasseios;
     } catch {
-      return;
+      return 'Houve um problema, não foi possível criar o passeio' ;
     }
   }
 

@@ -49,12 +49,15 @@ export class PasseiosService {
       );
       return atualizaPasseio;
     } catch {
-      return 'Não foi possível atualizar o passeio'
+      return 'Não foi possível atualizar o passeio';
     }
   }
 
-  async deletaPasseio(id: string) {
-    const passeioDeletado = await this.passeios.findByIdAndDelete(id);
-    return passeioDeletado;
+  async deletaPasseio(id: string): Promise<void | string> {
+    try {
+      await this.passeios.findByIdAndDelete(id);
+    } catch {
+      return 'Não foi possível deletar o passeio';
+    }
   }
 }

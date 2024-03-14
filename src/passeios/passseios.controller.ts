@@ -45,7 +45,7 @@ export class PasseiosController {
       const salvaPasseios = await this.passeios.adicionaPasseios(DadosPasseio);
       return salvaPasseios;
     } catch {
-      return 'Houve um problema, não foi possível criar o passeio' ;
+      return 'Houve um problema, não foi possível criar o passeio';
     }
   }
 
@@ -61,17 +61,16 @@ export class PasseiosController {
       );
       return atualizaPasseio;
     } catch {
-      return 'Houve um problema, não foi possível atualizar o passeio' ;
+      return 'Houve um problema, não foi possível atualizar o passeio';
     }
   }
 
   @Delete('/:id')
-  async deletaPasseio(@Param('id') id: string) {
+  async deletaPasseio(@Param('id') id: string): Promise<void | string> {
     try {
-      const deletandoPasseio = await this.passeios.deletaPasseio(id);
-      return deletandoPasseio;
+      await this.passeios.deletaPasseio(id);
     } catch {
-      return;
+      return 'Houve um problema, não foi possível deletar o passeio';
     }
   }
 }

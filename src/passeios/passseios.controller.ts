@@ -23,17 +23,17 @@ export class PasseiosController {
       const todosOsPasseios = await this.passeios.pegaTodosOsPasseios();
       return todosOsPasseios;
     } catch {
-      return 'Não foi possível retorna todos os passeios';
+      return 'Houve um problema, não foi possível retorna todos os passeios';
     }
-  }
+  }  
 
   @Get('/:id')
-  async pegaPasseioPeloId(@Param('id') id: string) {
+  async pegaPasseioPeloId(@Param('id') id: string): Promise<Passeios | string> {
     try {
       const pegaPasseioPeloId = await this.passeios.pegaPasseioPeloId(id);
       return pegaPasseioPeloId;
     } catch {
-      return;
+      return 'Houve um problema, não foi possível retorna o passeio, verifique se o id está correto';
     }
   }
 

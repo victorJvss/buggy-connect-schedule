@@ -19,8 +19,12 @@ export class PasseiosService {
     }
   }
 
-  async pegaPasseioPeloId(id: string) {
-    return this.passeios.findById(id);
+  async pegaPasseioPeloId(id: string): Promise<Passeios | string> {
+    try {
+      return this.passeios.findById(id);
+    } catch {
+      return 'Não foi possível retorna o passeio';
+    }
   }
 
   async adicionaPasseios(dadosPasseio: PasseiosDto) {
